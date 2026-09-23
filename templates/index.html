@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>محاكِي إربد الحضري | طبقة اليرموك والاقتصاد الكلي والتفاوض</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <header>
+        <a href="/" class="logo"><i class="fa-solid fa-city"></i> محاكِي <span>إربد</span></a>
+        <nav>
+            <ul>
+                <li><a href="#yarmouk">طبقة اليرموك</a></li>
+                <li><a href="#macro">الاقتصاد الكلي</a></li>
+                <li><a href="/multiplayer">غرفة التفاوض</a></li>
+                <li><a href="/dashboard">لوحة القرار</a></li>
+            </ul>
+        </nav>
+        <a href="#yarmouk" class="btn-main"><i class="fa-solid fa-graduation-cap"></i> جامعة اليرموك</a>
+    </header>
+
+    <section class="hero">
+        <h1>محاكاة حضرية متكاملة لمدينة إربد <span>بطبقة اليرموك الجامعية</span></h1>
+        <p style="color:var(--muted); max-width:700px; margin-bottom:25px;">أي تغيير في البنية التحتية حول جامعة اليرموك ينعكس فوراً على ازدهار المطاعم والمكتبات والازدحام الصباحي وأسعار السكن الطلابي.</p>
+        <div style="display:flex; gap:12px; flex-wrap:wrap; justify-content:center;">
+            <a href="#yarmouk" class="btn-main"><i class="fa-solid fa-graduation-cap"></i> طبقة اليرموك</a>
+            <a href="#macro" class="btn-outline"><i class="fa-solid fa-sliders"></i> الاقتصاد الكلي</a>
+        </div>
+    </section>
+
+    <!-- 🎓 طبقة محاكاة البيئة الجامعية (Yarmouk University Layer) -->
+    <section class="section" id="yarmouk">
+        <div class="sec-header">
+            <h2>طبقة جامعة اليرموك والاقتصاد الطلابي المحيط</h2>
+            <p>متغيرات الدوام، السكن، النقل، وأثرها على المشاريع الصغيرة والازدحام الصباحي</p>
+        </div>
+
+        <div class="yarmouk-layer">
+            <!-- مؤشرات اليرموك الحية -->
+            <div class="yarmouk-kpi-grid">
+                <div class="yarmouk-kpi">
+                    <h5>الازدحام الصباحي (7-9 ص)</h5>
+                    <div class="val" id="yCongestion" style="color:var(--red);">82%</div>
+                </div>
+                <div class="yarmouk-kpi">
+                    <h5>ازدهار المشاريع الصغيرة المحيطة</h5>
+                    <div class="val" id="yBizBoom" style="color:var(--green);">72%</div>
+                </div>
+                <div class="yarmouk-kpi">
+                    <h5>مؤشر تحمل أسعار السكن الطلابي</h5>
+                    <div class="val" id="yHousing" style="color:var(--gold);">68%</div>
+                </div>
+                <div class="yarmouk-kpi">
+                    <h5>الإنفاق الطلابي اليومي المحيط</h5>
+                    <div class="val" id="ySpend" style="color:var(--cyan);">2.4M د.أ</div>
+                </div>
+            </div>
+
+            <!-- أزرار التحكم بمتغيرات اليرموك -->
+            <div class="yarmouk-controls">
+                <div class="yarmouk-card">
+                    <h4><i class="fa-solid fa-clock" style="color:var(--cyan);"></i> أوقات الدوام والتسجيل</h4>
+                    <p style="font-size:0.8rem; color:var(--muted); margin-bottom:10px;">تفعيل نظام الدوام المرن (فترتين) لتخفيف الازدحام الصباحي عند البوابة الشمالية.</p>
+                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                        <span style="font-size:0.82rem; font-weight:bold;">الداوم المرن</span>
+                        <label class="switch"><input type="checkbox" id="toggleCampus" checked onchange="updateYarmoukLayer()"><span class="slider-sw"></span></label>
+                    </div>
+                </div>
+
+                <div class="yarmouk-card">
+                    <h4><i class="fa-solid fa-store" style="color:var(--gold);"></i> المشاريع الصغيرة المحيطة</h4>
+                    <p style="font-size:0.8rem; color:var(--muted); margin-bottom:10px;">تنظيم تراخيص المطاعم والمكتبات ومقاهي الدراسة في شارع شفيق إرشيدات.</p>
+                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                        <span style="font-size:0.82rem; font-weight:bold;">دعم المشاريع الصغيرة</span>
+                        <label class="switch"><input type="checkbox" id="toggleBiz" checked onchange="updateYarmoukLayer()"><span class="slider-sw"></span></label>
+                    </div>
+                </div>
+
+                <div class="yarmouk-card">
+                    <h4><i class="fa-solid fa-bus" style="color:var(--green);"></i> النقل من وإلى اليرموك</h4>
+                    <p style="font-size:0.8rem; color:var(--muted); margin-bottom:10px;">تفعيل مسارات باصات سريعة من مجمع عمان الجديد ومجمع الشمال للبوابة الرئيسية.</p>
+                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                        <span style="font-size:0.82rem; font-weight:bold;">باصات سريعة مخصصة</span>
+                        <label class="switch"><input type="checkbox" id="toggleMorning" checked onchange="updateYarmoukLayer()"><span class="slider-sw"></span></label>
+                    </div>
+                </div>
+
+                <div class="yarmouk-card">
+                    <h4><i class="fa-solid fa-house" style="color:var(--purple);"></i> أسعار السكن الطلابي</h4>
+                    <p style="font-size:0.8rem; color:var(--muted); margin-bottom:10px;">سقف إيجارات عادل للشقق والاستوديوهات في حي الجامعة وشارع الحصن.</p>
+                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                        <span style="font-size:0.82rem; font-weight:bold;">سقف الإيجارات العادل</span>
+                        <label class="switch"><input type="checkbox" id="toggleHousing" checked onchange="updateYarmoukLayer()"><span class="slider-sw"></span></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- الاقتصاد الكلي -->
+    <section class="section" id="macro">
+        <div class="sec-header">
+            <h2>محاكي الاقتصاد الكلي وتوزيع الميزانية</h2>
+        </div>
+        <div style="background:var(--card); border:1px solid var(--border); border-radius:18px; padding:25px; max-width:1000px; margin:auto;">
+            <div class="macro-grid">
+                <div class="macro-card"><h4 style="font-size:0.7rem; color:var(--muted);">التضخم</h4><div class="macro-val" id="valInflation" style="color:var(--orange);">3.2%</div></div>
+                <div class="macro-card"><h4 style="font-size:0.7rem; color:var(--muted);">الدين</h4><div class="macro-val" id="valDebt" style="color:var(--red);">120M</div></div>
+                <div class="macro-card"><h4 style="font-size:0.7rem; color:var(--muted);">السيولة</h4><div class="macro-val" id="valLiquidity" style="color:var(--cyan);">75%</div></div>
+                <div class="macro-card"><h4 style="font-size:0.7rem; color:var(--muted);">النمو</h4><div class="macro-val" id="valGrowth" style="color:var(--green);">2.1%</div></div>
+                <div class="macro-card"><h4 style="font-size:0.7rem; color:var(--muted);">البطالة</h4><div class="macro-val" id="valUnemployment" style="color:var(--red);">18%</div></div>
+                <div class="macro-card"><h4 style="font-size:0.7rem; color:var(--muted);">الرضا</h4><div class="macro-val" id="valSatisfaction" style="color:var(--purple);">74%</div></div>
+            </div>
+            <div class="sector-row"><i class="fa-solid fa-bus" style="color:var(--cyan); width:30px;"></i><span style="flex:1;">النقل والطلبة</span><div class="sector-slider"><input type="range" min="20" max="150" value="95" id="s0" oninput="dispatchMacroUpdate()"></div><div class="sector-value" id="v0">95M</div></div>
+            <div class="sector-row"><i class="fa-solid fa-road" style="color:var(--orange); width:30px;"></i><span style="flex:1;">البنية التحتية</span><div class="sector-slider"><input type="range" min="20" max="150" value="90" id="s1" oninput="dispatchMacroUpdate()"></div><div class="sector-value" id="v1">90M</div></div>
+            <div class="sector-row"><i class="fa-solid fa-leaf" style="color:var(--green); width:30px;"></i><span style="flex:1;">البيئة</span><div class="sector-slider"><input type="range" min="10" max="100" value="55" id="s2" oninput="dispatchMacroUpdate()"></div><div class="sector-value" id="v2">55M</div></div>
+            <div class="sector-row"><i class="fa-solid fa-graduation-cap" style="color:var(--blue); width:30px;"></i><span style="flex:1;">التعليم واليرموك</span><div class="sector-slider"><input type="range" min="10" max="100" value="70" id="s3" oninput="dispatchMacroUpdate()"></div><div class="sector-value" id="v3">70M</div></div>
+            <div class="sector-row"><i class="fa-solid fa-hospital" style="color:var(--purple); width:30px;"></i><span style="flex:1;">الصحة</span><div class="sector-slider"><input type="range" min="10" max="100" value="55" id="s4" oninput="dispatchMacroUpdate()"></div><div class="sector-value" id="v4">55M</div></div>
+            <div class="sector-row"><i class="fa-solid fa-shield-halved" style="color:var(--cyan); width:30px;"></i><span style="flex:1;">الأمن</span><div class="sector-slider"><input type="range" min="10" max="100" value="45" id="s5" oninput="dispatchMacroUpdate()"></div><div class="sector-value" id="v5">45M</div></div>
+        </div>
+    </section>
+
+    <footer><p>جميع الحقوق محفوظة &copy; 2025 | <strong>محاكِي إربد الحضري</strong></p></footer>
+
+    <script src="/static/js/main.js"></script>
+    <script>
+        // Fallback للـ GitHub Pages (بدون Flask)
+        function dispatchMacroUpdate() {
+            [0,1,2,3,4,5].forEach(i => {
+                const v = document.getElementById('s'+i)?.value;
+                const el = document.getElementById('v'+i);
+                if(v && el) el.innerText = v + 'M';
+            });
+        }
+        function updateYarmoukLayer() {
+            const campus = document.getElementById('toggleCampus')?.checked;
+            const biz = document.getElementById('toggleBiz')?.checked;
+            const morning = document.getElementById('toggleMorning')?.checked;
+            const housing = document.getElementById('toggleHousing')?.checked;
+            const cong = Math.round(95 - (campus ? 20 : 0) - (morning ? 15 : 0));
+            const boom = Math.round(40 + (biz ? 40 : 0) + (campus ? 10 : 0));
+            const hous = Math.round((housing ? 85 : 50));
+            const spend = ((campus ? 120000 : 60000) * 45 / 1000000).toFixed(1);
+            const el = (id, v) => { const e = document.getElementById(id); if(e) e.innerText = v; };
+            el('yCongestion', cong + '%');
+            el('yBizBoom', boom + '%');
+            el('yHousing', hous + '%');
+            el('ySpend', spend + 'M د.أ');
+        }
+        updateYarmoukLayer();
+    </script>
+</body>
+</html>
