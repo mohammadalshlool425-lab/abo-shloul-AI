@@ -3,241 +3,222 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- ===== SEO & Social Tags (ابو شلول AI) ===== -->
-    <title>ابو شلول AI | استوديو المونتاج الاحترافي والذكاء الاصطناعي</title>
-    <meta name="description" content="استوديو ابو شلول AI للمونتاج السينمائي الاحترافي، تلوين الفيديو، الموشن جرافيك، وهندسة الصوت المدعومة بأحدث تقنيات الذكاء الاصطناعي في الأردن والوطن العربي.">
-    <meta name="keywords" content="ابو شلول AI, ممنتج فيديو الأردن, مونتاج احترافي, تلوين سينمائي, موشن جرافيك, مونتاج ذكاء اصطناعي">
-    <meta name="author" content="ابو شلول AI">
-    
-    <!-- Open Graph (واتساب، فيسبوك، تيليجرام) -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="ابو شلول AI | تجربة بصرية وسينمائية فريدة">
-    <meta property="og:description" content="شاهد معرض الأعمال واحسب تكلفة مشروعك فوراً وتواصل معنا مباشرة عبر واتساب: +962775311442">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=1200&h=630&fit=crop">
-    <meta property="og:locale" content="ar_AR">
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="ابو شلول AI | استوديو المونتاج">
-    <meta name="twitter:description" content="مونتاج سينمائي + تلوين + هندسة صوت + موشن جرافيك مدعوم بالذكاء الاصطناعي.">
-    <meta name="twitter:image" content="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=1200&h=630&fit=crop">
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>">
-
-    <!-- Fonts & Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;500;700;900&display=swap" rel="stylesheet">
+    <title>ابو شلول AI | استوديو المونتاج والذكاء الاصطناعي</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            --bg-base: #07090e;
-            --card-bg: rgba(18, 24, 38, 0.7);
+            --bg: #07090e;
+            --card: #121826;
             --primary: #e50914;
-            --primary-glow: rgba(229, 9, 20, 0.4);
-            --accent-cyan: #00f2fe;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --border-ui: rgba(255, 255, 255, 0.08);
-            --border-hover: rgba(229, 9, 20, 0.5);
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --cyan: #00f2fe;
+            --text: #f8fafc;
+            --muted: #94a3b8;
+            --border: rgba(255,255,255,0.08);
+        }
+        * { margin:0; padding:0; box-sizing:border-box; font-family:'Cairo', sans-serif; scroll-behavior:smooth; }
+        body { background: var(--bg); color: var(--text); overflow-x: hidden; }
+        
+        header { position:fixed; top:0; width:100%; background:rgba(7,9,14,0.9); backdrop-filter:blur(10px); z-index:1000; border-bottom:1px solid var(--border); padding:15px 5%; display:flex; justify-content:space-between; align-items:center; }
+        .logo { font-size:1.4rem; font-weight:900; color:#fff; text-decoration:none; }
+        .logo span { color:var(--primary); }
+        nav ul { display:flex; list-style:none; gap:20px; }
+        nav a { color:var(--muted); text-decoration:none; font-weight:600; font-size:0.9rem; }
+        nav a:hover { color:var(--primary); }
+        .btn-main { background:var(--primary); color:#fff; padding:8px 18px; border-radius:6px; text-decoration:none; font-weight:bold; font-size:0.9rem; border:none; cursor:pointer; }
+        
+        .hero { min-height:100vh; padding:120px 5% 60px; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; }
+        .badge { background:rgba(229,9,20,0.15); color:var(--primary); border:1px solid var(--primary); padding:5px 15px; border-radius:20px; font-size:0.85rem; font-weight:bold; margin-bottom:15px; }
+        .hero h1 { font-size:2.8rem; font-weight:900; max-width:800px; line-height:1.3; margin-bottom:15px; }
+        .hero p { color:var(--muted); font-size:1.1rem; max-width:600px; margin-bottom:25px; }
+        
+        .showreel { width:100%; max-width:850px; aspect-ratio:16/9; border-radius:12px; overflow:hidden; border:2px solid var(--border); box-shadow:0 10px 30px rgba(0,0,0,0.8); }
+        .showreel iframe { width:100%; height:100%; border:none; }
+        
+        .section { padding:80px 5%; max-width:1100px; margin:auto; }
+        .sec-title { text-align:center; margin-bottom:40px; }
+        .sec-title h2 { font-size:2rem; margin-bottom:8px; }
+        .sec-title p { color:var(--muted); font-size:0.9rem; }
+        
+        /* Slider Before After */
+        .slider-box { position:relative; width:100%; max-width:800px; height:400px; margin:auto; border-radius:12px; overflow:hidden; border:2px solid var(--border); }
+        .slide-img { position:absolute; inset:0; background-size:cover; background-position:center; }
+        .img-before { background-image:url('https://images.unsplash.com/photo-1534447677768-be436bb09401?w=1200&auto=format&fit=crop&q=80'); filter:grayscale(80%) brightness(0.7); }
+        .img-after { background-image:url('https://images.unsplash.com/photo-1534447677768-be436bb09401?w=1200&auto=format&fit=crop&q=80'); filter:contrast(120%) saturate(140%); width:50%; border-right:3px solid var(--primary); }
+        .range-bar { position:absolute; inset:0; width:100%; height:100%; opacity:0; cursor:ew-resize; z-index:10; }
+        
+        /* Works */
+        .grid-works { display:grid; grid-template-columns:repeat(auto-fill, minmax(300px, 1fr)); gap:20px; }
+        .work-card { background:var(--card); border:1px solid var(--border); border-radius:10px; overflow:hidden; }
+        .work-thumb { width:100%; aspect-ratio:16/9; background:#000; overflow:hidden; }
+        .work-thumb img { width:100%; height:100%; object-fit:cover; }
+        .work-desc { padding:15px; }
+        .work-desc h3 { font-size:1.1rem; margin-bottom:5px; }
+        .work-desc p { color:var(--muted); font-size:0.85rem; }
+        
+        /* Calc */
+        .calc-card { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:30px; max-width:750px; margin:auto; }
+        .calc-types { display:grid; grid-template-columns:repeat(auto-fit, minmax(130px, 1fr)); gap:10px; margin:15px 0 25px; }
+        .type-btn { background:rgba(255,255,255,0.05); border:1px solid var(--border); padding:10px; border-radius:6px; color:var(--muted); cursor:pointer; text-align:center; font-weight:bold; font-size:0.85rem; }
+        .type-btn.active { background:rgba(229,9,20,0.2); border-color:var(--primary); color:#fff; }
+        .addons { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:25px; }
+        .addon { display:flex; align-items:center; gap:8px; background:rgba(255,255,255,0.03); padding:10px; border-radius:6px; font-size:0.85rem; cursor:pointer; }
+        .addon input { accent-color:var(--primary); }
+        .calc-footer { display:flex; justify-content:space-between; align-items:center; background:rgba(0,0,0,0.4); padding:15px 20px; border-radius:8px; border:1px dashed var(--primary); }
+        .calc-total { font-size:1.8rem; font-weight:900; color:var(--cyan); }
+        
+        /* Floating WA */
+        .wa-float { position:fixed; bottom:20px; left:20px; background:#25d366; color:#fff; width:55px; height:55px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:28px; box-shadow:0 4px 15px rgba(0,0,0,0.4); text-decoration:none; z-index:1000; }
+        
+        footer { border-top:1px solid var(--border); padding:25px 5%; text-align:center; color:var(--muted); font-size:0.85rem; }
+        .phone-link { color:var(--cyan); font-weight:bold; margin-top:5px; display:block; text-decoration:none; }
+        
+        @media(max-width:768px){ nav ul { display:none; } .hero h1{ font-size:2rem; } .addons { grid-template-columns:1fr; } .slider-box{ height:250px; } }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#" class="logo">ابو شلول <span>AI</span></a>
+        <nav>
+            <ul>
+                <li><a href="#hero">الرئيسية</a></li>
+                <li><a href="#grading">قبل وبعد</a></li>
+                <li><a href="#portfolio">الأعمال</a></li>
+                <li><a href="#calculator">حاسبة الأسعار</a></li>
+            </ul>
+        </nav>
+        <a href="#calculator" class="btn-main">احسب مشروعي</a>
+    </header>
+
+    <section class="hero" id="hero">
+        <div class="badge"><i class="fa-solid fa-bolt"></i> استوديو مونتاج متطور مدعوم بالذكاء الاصطناعي</div>
+        <h1>أحول لقطاتك إلى أعمال سينمائية تأسر جمهورك</h1>
+        <p>مونتاج احترافي، تلوين سينمائي، وهندسة صوتية متكاملة لصناع المحتوى والشركات.</p>
+        
+        <div class="showreel">
+            <iframe src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+        </div>
+    </section>
+
+    <!-- سلايدر قبل وبعد -->
+    <section class="section" id="grading">
+        <div class="sec-title">
+            <h2>سحر التلوين السينمائي</h2>
+            <p>اسحب المؤشر لترى الفرق بين تصوير الكاميرا والنتيجة النهائية</p>
+        </div>
+        <div class="slider-box">
+            <div class="slide-img img-before"></div>
+            <div class="slide-img img-after" id="afterSlide"></div>
+            <input type="range" min="0" max="100" value="50" class="range-bar" id="sliderRange">
+        </div>
+    </section>
+
+    <!-- المعرض -->
+    <section class="section" id="portfolio">
+        <div class="sec-title">
+            <h2>نماذج من الأعمال</h2>
+            <p>أعمال تم تنفيذها بأعلى معايير الجودة</p>
+        </div>
+        <div class="grid-works">
+            <div class="work-card">
+                <div class="work-thumb"><img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=600" alt="Work"></div>
+                <div class="work-desc">
+                    <h3>وثائقي يوتيوب</h3>
+                    <p>سرد قصصي ومكساج صوتي احترافي.</p>
+                </div>
+            </div>
+            <div class="work-card">
+                <div class="work-thumb"><img src="https://images.unsplash.com/photo-1536240478700-b869070f9279?w=600" alt="Work"></div>
+                <div class="work-desc">
+                    <h3>إعلان تجاري</h3>
+                    <p>مونتاج إيقاعي وتلوين سينمائي فاخر.</p>
+                </div>
+            </div>
+            <div class="work-card">
+                <div class="work-thumb"><img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600" alt="Work"></div>
+                <div class="work-desc">
+                    <h3>ريلز وتيك توك</h3>
+                    <p>Hook سريع مع مؤثرات ونصوص متحركة.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- الحاسبة -->
+    <section class="section" id="calculator">
+        <div class="sec-title">
+            <h2>حاسبة التكلفة التقديرية</h2>
+            <p>اختر نوع الفيديو والإضافات لتظهر لك التكلفة مباشرة</p>
+        </div>
+        <div class="calc-card">
+            <label style="font-weight:bold;">نوع الفيديو:</label>
+            <div class="calc-types">
+                <div class="type-btn active" onclick="setBase(40, this)">ريلز / شورتس</div>
+                <div class="type-btn" onclick="setBase(90, this)">يوتيوب (10 د)</div>
+                <div class="type-btn" onclick="setBase(180, this)">إعلان سينمائي</div>
+            </div>
+
+            <label style="font-weight:bold;">الإضافات:</label>
+            <div class="addons">
+                <label class="addon"><input type="checkbox" id="c1" checked onchange="calc()"> هندسة صوت ومكساج (+20$)</label>
+                <label class="addon"><input type="checkbox" id="c2" checked onchange="calc()"> تلوين سينمائي (+30$)</label>
+                <label class="addon"><input type="checkbox" id="c3" onchange="calc()"> موشن جرافيك (+40$)</label>
+                <label class="addon"><input type="checkbox" id="c4" onchange="calc()"> تسليم سريع 24 ساعة (+50$)</label>
+            </div>
+
+            <div class="calc-footer">
+                <div>
+                    <span style="font-size:0.8rem; color:var(--muted);">المجموع التقديري:</span>
+                    <div class="calc-total" id="totalVal">$90</div>
+                </div>
+                <button class="btn-main" onclick="sendWA()"><i class="fa-brands fa-whatsapp"></i> اطلب عبر واتساب</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- زر واتساب العائم -->
+    <a href="https://wa.me/962775311442" class="wa-float" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+
+    <footer>
+        <p>جميع الحقوق محفوظة &copy; 2025 | <strong>ابو شلول AI</strong></p>
+        <a href="https://wa.me/962775311442" class="phone-link">+962 77 531 1442</a>
+    </footer>
+
+    <script>
+        // Before/After Slider
+        const sRange = document.getElementById('sliderRange');
+        const sAfter = document.getElementById('afterSlide');
+        sRange.addEventListener('input', (e) => {
+            sAfter.style.width = e.target.value + '%';
+        });
+
+        // Calculator
+        let base = 40;
+        function setBase(p, el) {
+            document.querySelectorAll('.type-btn').forEach(b => b.classList.remove('active'));
+            el.classList.add('active');
+            base = p;
+            calc();
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Cairo', sans-serif;
-            scroll-behavior: smooth;
+        function calc() {
+            let t = base;
+            if(document.getElementById('c1').checked) t += 20;
+            if(document.getElementById('c2').checked) t += 30;
+            if(document.getElementById('c3').checked) t += 40;
+            if(document.getElementById('c4').checked) t += 50;
+            document.getElementById('totalVal').innerText = '$' + t;
+            return t;
         }
 
-        body {
-            background-color: var(--bg-base);
-            color: var(--text-main);
-            overflow-x: hidden;
-            background-image: radial-gradient(circle at 15% 50%, rgba(229, 9, 20, 0.06) 0%, transparent 25%),
-                              radial-gradient(circle at 85% 30%, rgba(0, 242, 254, 0.06) 0%, transparent 25%);
+        function sendWA() {
+            const tot = calc();
+            const msg = `مرحباً ابو شلول AI، قمت بحساب تكلفة مشروعي عبر موقعك بقيمة ($${tot}). أرغب في الاتفاق والبدء معكم!`;
+            window.open(`https://wa.me/962775311442?text=${encodeURIComponent(msg)}`, '_blank');
         }
-
-        /* Header */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(7, 9, 14, 0.85);
-            backdrop-filter: blur(15px);
-            z-index: 1000;
-            border-bottom: 1px solid var(--border-ui);
-            padding: 16px 6%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 900;
-            color: #fff;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .logo span { color: var(--primary); text-shadow: 0 0 15px var(--primary-glow); }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 25px;
-        }
-
-        nav a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: var(--transition);
-        }
-
-        nav a:hover { color: var(--primary); text-shadow: 0 0 10px var(--primary-glow); }
-
-        .btn-glow {
-            background: linear-gradient(135deg, var(--primary), #b80710);
-            color: white;
-            padding: 10px 22px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 700;
-            box-shadow: 0 4px 20px var(--primary-glow);
-            transition: var(--transition);
-            border: none;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .btn-glow:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 25px rgba(229, 9, 20, 0.6);
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            padding: 130px 6% 60px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-
-        .hero-badge {
-            background: rgba(229, 9, 20, 0.1);
-            border: 1px solid rgba(229, 9, 20, 0.3);
-            color: var(--primary);
-            padding: 6px 18px;
-            border-radius: 30px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .hero h1 {
-            font-size: 3.2rem;
-            font-weight: 900;
-            max-width: 900px;
-            line-height: 1.3;
-            margin-bottom: 20px;
-            background: linear-gradient(to bottom, #ffffff 40%, #94a3b8 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero p {
-            color: var(--text-muted);
-            font-size: 1.15rem;
-            max-width: 650px;
-            margin-bottom: 35px;
-        }
-
-        .showreel-wrapper {
-            width: 100%;
-            max-width: 900px;
-            position: relative;
-            border-radius: 16px;
-            padding: 3px;
-            background: linear-gradient(135deg, rgba(229,9,20,0.5), transparent, rgba(0,242,254,0.3));
-            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.9);
-            margin-bottom: 30px;
-        }
-
-        .showreel-frame {
-            position: relative;
-            width: 100%;
-            padding-bottom: 56.25%;
-            border-radius: 14px;
-            overflow: hidden;
-            background: #000;
-        }
-
-        .showreel-frame iframe {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%; border: none;
-        }
-
-        /* Sections Common */
-        .section {
-            padding: 90px 6%;
-            max-width: 1200px;
-            margin: auto;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 45px;
-        }
-
-        .section-header h2 {
-            font-size: 2.2rem;
-            font-weight: 800;
-            margin-bottom: 10px;
-        }
-
-        .section-header p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
-
-        /* Before/After Slider */
-        .comparison-container {
-            position: relative;
-            width: 100%;
-            max-width: 850px;
-            height: 450px;
-            margin: 0 auto;
-            border-radius: 16px;
-            overflow: hidden;
-            border: 2px solid var(--border-ui);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.7);
-        }
-
-        .comparison-img {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background-size: cover;
-            background-position: center;
-        }
-
-        .before-img {
-            background-image: url('https://images.unsplash.com/photo-1534447677768-be436bb09401?w=1200&auto=format&fit=crop&q=80');
-            filter: grayscale(80%) brightness(0.7) contrast(90%);
-        }
-
-        .after-img {
-            
+        calc();
+    </script>
+</body>
+</html>
