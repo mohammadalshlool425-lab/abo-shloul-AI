@@ -162,4 +162,1056 @@
             margin-bottom: 20px;
             background: linear-gradient(to bottom, #ffffff 30%, #94a3b8 100%);
             -webkit-background-clip: text;
-            -webkit-text-fill-color: 
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--cyan), var(--purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            font-size: 1.15rem;
+            max-width: 700px;
+            margin-bottom: 30px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 35px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn-outline {
+            background: var(--card-bg);
+            border: 1px solid var(--border-ui);
+            color: #fff;
+            padding: 10px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-outline:hover { border-color: var(--cyan); color: var(--cyan); box-shadow: 0 0 15px var(--cyan-glow); }
+
+        .showreel-wrapper {
+            width: 100%;
+            max-width: 920px;
+            border-radius: 16px;
+            padding: 3px;
+            background: linear-gradient(135deg, rgba(229,9,20,0.5), transparent, rgba(0,242,254,0.4));
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.9);
+            margin-bottom: 30px;
+        }
+
+        .showreel-frame {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            border-radius: 14px;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .showreel-frame iframe {
+            position: absolute;
+            inset: 0; width: 100%; height: 100%; border: none;
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+
+        .stat-item { text-align: center; }
+        .stat-item h3 { font-size: 2.2rem; font-weight: 900; color: var(--cyan); }
+        .stat-item span { color: var(--text-muted); font-size: 0.85rem; }
+
+        /* Sections Common */
+        .section {
+            padding: 90px 6%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-header h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* 💥 الميزة 1: معالج المشاريع الذكي بالـ AI 💥 */
+        .wizard-box {
+            background: var(--card-bg);
+            border: 1px solid var(--border-ui);
+            border-radius: 18px;
+            padding: 35px;
+            max-width: 850px;
+            margin: auto;
+            backdrop-filter: blur(15px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .wizard-box::before {
+            content: '';
+            position: absolute;
+            top: 0; right: 0; width: 100%; height: 4px;
+            background: linear-gradient(90deg, var(--cyan), var(--purple), var(--primary));
+        }
+
+        .wizard-step { display: none; }
+        .wizard-step.active { display: block; animation: fadeIn 0.4s ease; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .wizard-step h3 { font-size: 1.3rem; margin-bottom: 8px; color: #fff; }
+        .wizard-step p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px; }
+
+        .wizard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        .wizard-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--border-ui);
+            padding: 16px;
+            border-radius: 10px;
+            cursor: pointer;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .wizard-card:hover, .wizard-card.selected {
+            border-color: var(--cyan);
+            background: rgba(0, 242, 254, 0.08);
+            box-shadow: 0 0 15px var(--cyan-glow);
+            transform: translateY(-3px);
+        }
+
+        .wizard-card i { font-size: 1.8rem; margin-bottom: 8px; color: var(--cyan); }
+        .wizard-card h4 { font-size: 1rem; color: #fff; }
+
+        .wizard-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--border-ui);
+            padding-top: 20px;
+        }
+
+        /* 💥 الميزة 2: محاكي هندسة الصوت التفاعلي 💥 */
+        .audio-demo-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-ui);
+            border-radius: 16px;
+            padding: 30px;
+            max-width: 800px;
+            margin: auto;
+            backdrop-filter: blur(15px);
+            text-align: center;
+        }
+
+        .wave-visualizer {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            height: 70px;
+            margin: 25px 0;
+        }
+
+        .wave-bar {
+            width: 6px;
+            height: 20px;
+            background: var(--cyan);
+            border-radius: 3px;
+            transition: height 0.2s ease;
+        }
+
+        .wave-active .wave-bar {
+            animation: waveBounce 1.2s infinite ease-in-out;
+        }
+
+        @keyframes waveBounce {
+            0%, 100% { height: 15px; }
+            50% { height: 65px; background: var(--primary); }
+        }
+
+        /* توليد تفاوت في حركة الموجات */
+        .wave-bar:nth-child(2) { animation-delay: 0.1s; }
+        .wave-bar:nth-child(3) { animation-delay: 0.2s; }
+        .wave-bar:nth-child(4) { animation-delay: 0.3s; }
+        .wave-bar:nth-child(5) { animation-delay: 0.4s; }
+        .wave-bar:nth-child(6) { animation-delay: 0.5s; }
+        .wave-bar:nth-child(7) { animation-delay: 0.6s; }
+        .wave-bar:nth-child(8) { animation-delay: 0.7s; }
+
+        /* Before/After Slider */
+        .comparison-container {
+            position: relative;
+            width: 100%;
+            max-width: 850px;
+            height: 440px;
+            margin: 0 auto;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 2px solid var(--border-ui);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.7);
+        }
+
+        .comparison-img {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .before-img {
+            background-image: url('https://images.unsplash.com/photo-1534447677768-be436bb09401?w=1200&auto=format&fit=crop&q=80');
+            filter: grayscale(80%) brightness(0.7) contrast(90%);
+        }
+
+        .after-img {
+            background-image: url('https://images.unsplash.com/photo-1534447677768-be436bb09401?w=1200&auto=format&fit=crop&q=80');
+            filter: contrast(115%) saturate(140%) brightness(1.05);
+            width: 50%;
+            border-right: 3px solid var(--primary);
+        }
+
+        .slider-handle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            box-shadow: 0 0 20px var(--primary-glow);
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .comparison-range {
+            position: absolute;
+            inset: 0; width: 100%; height: 100%;
+            opacity: 0;
+            cursor: ew-resize;
+            z-index: 20;
+        }
+
+        .badge-before, .badge-after {
+            position: absolute;
+            bottom: 20px;
+            padding: 6px 14px;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        .badge-before { right: 20px; color: #aaa; }
+        .badge-after { left: 20px; color: var(--primary); border: 1px solid var(--primary); }
+
+        /* Works Grid */
+        .filters {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 35px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: var(--card-bg);
+            border: 1px solid var(--border-ui);
+            color: var(--text-muted);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.9rem;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            box-shadow: 0 0 15px var(--primary-glow);
+        }
+
+        .grid-works {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
+        }
+
+        .work-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-ui);
+            border-radius: 14px;
+            overflow: hidden;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .work-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--border-hover);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+        }
+
+        .thumbnail-box {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            overflow: hidden;
+        }
+
+        .thumbnail-box img {
+            width: 100%; height: 100%; object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .work-card:hover .thumbnail-box img { transform: scale(1.08); }
+
+        .play-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .work-card:hover .play-overlay { opacity: 1; }
+
+        .play-btn-circle {
+            width: 55px; height: 55px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            color: white; font-size: 1.3rem;
+            box-shadow: 0 0 20px var(--primary-glow);
+            transition: var(--transition);
+        }
+
+        .card-details { padding: 20px; }
+        .card-tag { font-size: 0.75rem; color: var(--cyan); font-weight: bold; text-transform: uppercase; margin-bottom: 6px; display: block; }
+        .card-details h3 { font-size: 1.15rem; margin-bottom: 6px; }
+        .card-details p { color: var(--text-muted); font-size: 0.85rem; }
+
+        /* Calculator with Currency */
+        .calc-wrapper {
+            background: var(--card-bg);
+            border: 1px solid var(--border-ui);
+            border-radius: 16px;
+            padding: 35px;
+            max-width: 800px;
+            margin: auto;
+            backdrop-filter: blur(15px);
+        }
+
+        .currency-switch-box {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border-ui);
+        }
+
+        .curr-btn {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--border-ui);
+            color: var(--text-muted);
+            padding: 6px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.85rem;
+            transition: var(--transition);
+        }
+
+        .curr-btn.active {
+            background: var(--cyan);
+            color: #000;
+            border-color: var(--cyan);
+        }
+
+        .calc-option { margin-bottom: 22px; }
+        .calc-option label { display: block; font-weight: 700; margin-bottom: 10px; color: #fff; }
+
+        .calc-grid-selectors {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 10px;
+        }
+
+        .calc-btn-select {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid var(--border-ui);
+            padding: 12px;
+            border-radius: 8px;
+            color: var(--text-muted);
+            font-weight: 600;
+            cursor: pointer;
+            text-align: center;
+            transition: var(--transition);
+            font-size: 0.9rem;
+        }
+
+        .calc-btn-select.selected {
+            background: rgba(229,9,20,0.15);
+            border-color: var(--primary);
+            color: #fff;
+            box-shadow: 0 0 10px var(--primary-glow);
+        }
+
+        .calc-addons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .addon-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255,255,255,0.03);
+            padding: 10px 14px;
+            border-radius: 8px;
+            cursor: pointer;
+            border: 1px solid var(--border-ui);
+            font-size: 0.88rem;
+        }
+
+        .addon-item input { accent-color: var(--primary); width: 18px; height: 18px; }
+
+        .calc-result-box {
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(0,0,0,0.4);
+            border-radius: 12px;
+            border: 1px dashed var(--primary);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .price-display h4 { color: var(--text-muted); font-size: 0.85rem; }
+        .price-display .price-amount { font-size: 2.2rem; font-weight: 900; color: var(--cyan); }
+
+        /* Floating WhatsApp */
+        .float-wa {
+            position: fixed;
+            bottom: 25px;
+            left: 25px;
+            background: #25d366;
+            color: white;
+            width: 58px; height: 58px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        .float-wa:hover { transform: scale(1.1); }
+
+        /* Modal Lightbox */
+        .modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.92);
+            backdrop-filter: blur(10px);
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-content {
+            position: relative;
+            width: 100%;
+            max-width: 850px;
+            background: var(--bg-base);
+            border-radius: 14px;
+            border: 1px solid var(--border-ui);
+            overflow: hidden;
+        }
+
+        .modal-video-frame {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+        }
+
+        .modal-video-frame iframe {
+            position: absolute;
+            inset: 0; width: 100%; height: 100%; border: none;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px; left: 15px;
+            color: white;
+            font-size: 1.4rem;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border-ui);
+            padding: 35px 6%;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        .direct-contact {
+            margin-top: 10px;
+            color: var(--cyan);
+            font-weight: bold;
+            font-size: 0.95rem;
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.1rem; }
+            nav ul { display: none; }
+            .comparison-container { height: 250px; }
+            .calc-addons { grid-template-columns: 1fr; }
+            .stats-bar { gap: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- خلفية الجزيئات التفاعلية الحية -->
+    <canvas id="bgCanvas"></canvas>
+
+    <!-- Header -->
+    <header>
+        <a href="#" class="logo"><i class="fa-solid fa-clapperboard"></i> ابو شلول <span>AI</span></a>
+        <nav>
+            <ul>
+                <li><a href="#hero">الرئيسية</a></li>
+                <li><a href="#ai-wizard">معالج المشاريع AI</a></li>
+                <li><a href="#sound-lab">مختبر الصوت</a></li>
+                <li><a href="#color-grading">قبل وبعد</a></li>
+                <li><a href="#portfolio">الأعمال</a></li>
+                <li><a href="#calculator">حاسبة الأسعار</a></li>
+            </ul>
+        </nav>
+        <a href="#ai-wizard" class="btn-glow"><i class="fa-solid fa-bolt"></i> ابدأ معالج AI</a>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" id="hero">
+        <div class="hero-badge"><i class="fa-solid fa-sparkles"></i> هندسة محتوى بصري بمعايير سينمائية وذكاء اصطناعي</div>
+        <h1>نصنع فيديوهات تفرض حضورك <span>وتضاعف أرباحك وتفاعلك</span></h1>
+        <p>استوديو <strong>ابو شلول AI</strong> هو وجهتك المعتمدة للمونتاج السينمائي فائق الدقة، تصميم الصوت المحيطي، والتلوين الاحترافي المدعوم بأحدث خوارزميات الذكاء الاصطناعي.</p>
+
+        <div class="hero-actions">
+            <a href="#ai-wizard" class="btn-glow"><i class="fa-solid fa-wand-magic-sparkles"></i> ابنِ خطة مشروعك بالـ AI</a>
+            <a href="#portfolio" class="btn-outline"><i class="fa-solid fa-play"></i> استعرض معرض الأعمال</a>
+        </div>
+
+        <!-- Showreel Frame -->
+        <div class="showreel-wrapper">
+            <div class="showreel-frame">
+                <iframe src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <!-- Stats Bar -->
+        <div class="stats-bar">
+            <div class="stat-item">
+                <h3>+150</h3>
+                <span>مشروع سينمائي منجز</span>
+            </div>
+            <div class="stat-item">
+                <h3>+5M</h3>
+                <span>مشاهدة تم توليدها للعملاء</span>
+            </div>
+            <div class="stat-item">
+                <h3>100%</h3>
+                <span>التزام بالمواعيد والجودة</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 💥 الميزة 1: معالج المشاريع الذكي بالـ AI 💥 -->
+    <section class="section" id="ai-wizard">
+        <div class="section-header">
+            <h2>معالج خطة المشروع الذكي (AI Scope Builder)</h2>
+            <p>أجب على 3 أسئلة سريعة ليقوم نظامنا بتوليد خطة إنتاج مخصصة لفيديوهاتك فوراً</p>
+        </div>
+
+        <div class="wizard-box">
+            <!-- خطوة 1 -->
+            <div class="wizard-step active" id="wStep1">
+                <h3>1. ما هو هدفك الأساسي من هذا المحتوى؟</h3>
+                <p>اختر النتيجة التي تريد تحقيقها:</p>
+                <div class="wizard-grid">
+                    <div class="wizard-card selected" onclick="pickOption(this, 'sales')">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <h4>مبيعات وتحويل عملاء</h4>
+                    </div>
+                    <div class="wizard-card" onclick="pickOption(this, 'views')">
+                        <i class="fa-solid fa-fire"></i>
+                        <h4>انتشار فيروسي (Viral)</h4>
+                    </div>
+                    <div class="wizard-card" onclick="pickOption(this, 'brand')">
+                        <i class="fa-solid fa-crown"></i>
+                        <h4>بناء براند شخصي فاخر</h4>
+                    </div>
+                </div>
+                <div class="wizard-footer">
+                    <span style="color:var(--text-muted); font-size:0.85rem;">الخطوة 1 من 3</span>
+                    <button class="btn-glow" onclick="goToStep(2)">التالي <i class="fa-solid fa-arrow-left"></i></button>
+                </div>
+            </div>
+
+            <!-- خطوة 2 -->
+            <div class="wizard-step" id="wStep2">
+                <h3>2. ما هي المنصة الأساسية للنشر؟</h3>
+                <p>سنقوم بتهيئة الأبعاد ومعدل التقطيع حسب المنصة:</p>
+                <div class="wizard-grid">
+                    <div class="wizard-card selected" onclick="pickOption(this, 'reels')">
+                        <i class="fa-brands fa-tiktok"></i>
+                        <h4>ريلز وتيك توك (9:16)</h4>
+                    </div>
+                    <div class="wizard-card" onclick="pickOption(this, 'youtube')">
+                        <i class="fa-brands fa-youtube"></i>
+                        <h4>يوتيوب طويل (16:9)</h4>
+                    </div>
+                    <div class="wizard-card" onclick="pickOption(this, 'ads')">
+                        <i class="fa-solid fa-rectangle-ad"></i>
+                        <h4>إعلانات سناب وميتا</h4>
+                    </div>
+                </div>
+                <div class="wizard-footer">
+                    <button class="btn-outline" onclick="goToStep(1)">رجوع</button>
+                    <button class="btn-glow" onclick="goToStep(3)">التالي <i class="fa-solid fa-arrow-left"></i></button>
+                </div>
+            </div>
+
+            <!-- خطوة 3 -->
+            <div class="wizard-step" id="wStep3">
+                <h3>3. ما هي الميزة السحرية التي تفضل إضافتها؟</h3>
+                <p>اختر اللمسة الفنية المطلوبة:</p>
+                <div class="wizard-grid">
+                    <div class="wizard-card selected" onclick="pickOption(this, 'sound')">
+                        <i class="fa-solid fa-volume-high"></i>
+                        <h4>مكساج صوتي وتلوين كامل</h4>
+                    </div>
+                    <div class="wizard-card" onclick="pickOption(this, 'ai-broll')">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        <h4>مشاهد AI مولدة حصرياً</h4>
+                    </div>
+                    <div class="wizard-card" onclick="pickOption(this, 'fast')">
+                        <i class="fa-solid fa-bolt"></i>
+                        <h4>تسليم VIP خلال 24 ساعة</h4>
+                    </div>
+                </div>
+                <div class="wizard-footer">
+                    <button class="btn-outline" onclick="goToStep(2)">رجوع</button>
+                    <button class="btn-glow" onclick="submitWizard()"><i class="fa-brands fa-whatsapp"></i> إرسال الخطة مباشرة لواتساب ابو شلول</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 💥 الميزة 2: محاكي هندسة الصوت التفاعلي 💥 -->
+    <section class="section" id="sound-lab">
+        <div class="section-header">
+            <h2>مختبر هندسة وتصميم الصوت (Sound Design Lab)</h2>
+            <p>50% من تأثير الفيديو السينمائي يكمن في الصوت. اضغط الزر لمعاينة محاكاة المعالجة:</p>
+        </div>
+
+        <div class="audio-demo-card">
+            <h3 id="audioModeText">الوضع: معالجة سينمائية فائقة (Studio AI Master)</h3>
+            <p style="color:var(--text-muted); font-size:0.9rem;">عزل ضوضاء + تعزيز الترددات الصوتية + مؤثرات Foley محيطية</p>
+            
+            <div class="wave-visualizer wave-active" id="visualizer">
+                <div class="wave-bar"></div>
+                <div class="wave-bar"></div>
+                <div class="wave-bar"></div>
+                <div class="wave-bar"></div>
+                <div class="wave-bar"></div>
+                <div class="wave-bar"></div>
+                <div class="wave-bar"></div>
+                <div class="wave-bar"></div>
+            </div>
+
+            <button class="btn-outline" onclick="toggleAudioDemo(this)">
+                <i class="fa-solid fa-sliders"></i> تبديل المعالجة (تفعيل / إيقاف تأثير الاستوديو)
+            </button>
+        </div>
+    </section>
+
+    <!-- Before / After Slider -->
+    <section class="section" id="color-grading">
+        <div class="section-header">
+            <h2>سحر التلوين السينمائي (Color Grading)</h2>
+            <p>اسحب المؤشر لترى الفرق بين تصوير الكاميرا الخام والنتيجة بعد المعالجة الاحترافية</p>
+        </div>
+
+        <div class="comparison-container" id="sliderContainer">
+            <div class="comparison-img before-img"></div>
+            <div class="comparison-img after-img" id="afterImage"></div>
+            <div class="slider-handle" id="sliderHandle"><i class="fa-solid fa-arrows-left-right"></i></div>
+            <input type="range" min="0" max="100" value="50" class="comparison-range" id="compareRange">
+            <div class="badge-before">قبل (RAW LOG)</div>
+            <div class="badge-after">بعد التلوين (FINAL LOOK)</div>
+        </div>
+    </section>
+
+    <!-- Portfolio -->
+    <section class="section" id="portfolio">
+        <div class="section-header">
+            <h2>معرض الأعمال المختارة</h2>
+            <p>اضغط على أي مشروع لتشغيله في المشغل السينمائي</p>
+        </div>
+
+        <div class="filters">
+            <button class="filter-btn active" onclick="filterWorks('all')">كل الأعمال</button>
+            <button class="filter-btn" onclick="filterWorks('youtube')">يوتيوب ووثائقيات</button>
+            <button class="filter-btn" onclick="filterWorks('ads')">إعلانات تجارية</button>
+            <button class="filter-btn" onclick="filterWorks('reels')">ريلز وسوشيال ميديا</button>
+        </div>
+
+        <div class="grid-works">
+            <div class="work-card" data-cat="youtube" onclick="openCinema('dQw4w9WgXcQ')">
+                <div class="thumbnail-box">
+                    <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=800" alt="Work">
+                    <div class="play-overlay"><div class="play-btn-circle"><i class="fa-solid fa-play"></i></div></div>
+                </div>
+                <div class="card-details">
+                    <span class="card-tag">يوتيوب & سرد قصصي</span>
+                    <h3>وثائقي صناعة المحتوى والـ AI</h3>
+                    <p>تقطيع إيقاعي مع مؤثرات صوتية محيطية وتحريك نصوص متقدم.</p>
+                </div>
+            </div>
+
+            <div class="work-card" data-cat="ads" onclick="openCinema('dQw4w9WgXcQ')">
+                <div class="thumbnail-box">
+                    <img src="https://images.unsplash.com/photo-1536240478700-b869070f9279?w=800" alt="Work">
+                    <div class="play-overlay"><div class="play-btn-circle"><i class="fa-solid fa-play"></i></div></div>
+                </div>
+                <div class="card-details">
+                    <span class="card-tag">إعلان تجاري</span>
+                    <h3>إعلان إطلاق منتج فاخر</h3>
+                    <p>مونتاج سينمائي سريع ومتناغم 100% مع الموسيقى والمؤثرات.</p>
+                </div>
+            </div>
+
+            <div class="work-card" data-cat="reels" onclick="openCinema('dQw4w9WgXcQ')">
+                <div class="thumbnail-box">
+                    <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800" alt="Work">
+                    <div class="play-overlay"><div class="play-btn-circle"><i class="fa-solid fa-play"></i></div></div>
+                </div>
+                <div class="card-details">
+                    <span class="card-tag">ريلز وتيك توك</span>
+                    <h3>حزمة ريلز فيروسية سريعة</h3>
+                    <p>Hook بصري خاطف في أول 3 ثوانٍ يضمن مشاهدة الفيديو للنهاية.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calculator with Currency -->
+    <section class="section" id="calculator">
+        <div class="section-header">
+            <h2>حاسبة الميزانية التقديرية الذكية</h2>
+            <p>اختر عملتك ونوع الفيديو للحصول على تسعيرة مباشرة وفورية</p>
+        </div>
+
+        <div class="calc-wrapper">
+            <!-- محول العملات -->
+            <div class="currency-switch-box">
+                <span style="font-weight:bold; font-size:0.95rem;">اختر العملة:</span>
+                <div class="currency-toggles">
+                    <button class="curr-btn active" onclick="setCurrency('USD', this)">🇺🇸 دولار ($)</button>
+                    <button class="curr-btn" onclick="setCurrency('JOD', this)">🇯🇴 دينار أردني (JOD)</button>
+                </div>
+            </div>
+
+            <div class="calc-option">
+                <label>نوع الفيديو:</label>
+                <div class="calc-grid-selectors" id="typeGroup">
+                    <div class="calc-btn-select selected" data-usd="40" data-jod="28" onclick="selectType(this)">ريلز / شورتس (دقيقة)</div>
+                    <div class="calc-btn-select" data-usd="90" data-jod="65" onclick="selectType(this)">يوتيوب (حتى 10 دقائق)</div>
+                    <div class="calc-btn-select" data-usd="180" data-jod="125" onclick="selectType(this)">إعلان تجاري سينمائي</div>
+                </div>
+            </div>
+
+            <div class="calc-option">
+                <label>إضافات وميزات حصرية:</label>
+                <div class="calc-addons">
+                    <label class="addon-item">
+                        <input type="checkbox" id="addSound" onchange="calculateTotal()" checked data-usd="20" data-jod="15">
+                        <span id="txtSound">مكساج وهندسة صوتية (+20$)</span>
+                    </label>
+                    <label class="addon-item">
+                        <input type="checkbox" id="addColor" onchange="calculateTotal()" checked data-usd="30" data-jod="20">
+                        <span id="txtColor">تلوين سينمائي كامل (+30$)</span>
+                    </label>
+                    <label class="addon-item">
+                        <input type="checkbox" id="addMotion" onchange="calculateTotal()" data-usd="40" data-jod="28">
+                        <span id="txtMotion">موشن جرافيك متقدم (+40$)</span>
+                    </label>
+                    <label class="addon-item">
+                        <input type="checkbox" id="addFast" onchange="calculateTotal()" data-usd="50" data-jod="35">
+                        <span id="txtFast">تسليم سريع خلال 24 ساعة (+50$)</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="calc-result-box">
+                <div class="price-display">
+                    <h4>السعر التقديري الإجمالي:</h4>
+                    <div class="price-amount" id="totalPrice">$90</div>
+                </div>
+                <button class="btn-glow" onclick="orderViaWhatsApp()"><i class="fa-brands fa-whatsapp"></i> اطلب بهذا السعر عبر واتساب</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- زر واتساب العائم -->
+    <a href="https://wa.me/962775311442" class="float-wa" target="_blank" title="تواصل مع ابو شلول AI"><i class="fa-brands fa-whatsapp"></i></a>
+
+    <!-- المشغل السينمائي المنبثق -->
+    <div class="modal" id="cinemaModal" onclick="closeCinema()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div class="modal-close" onclick="closeCinema()"><i class="fa-solid fa-xmark"></i></div>
+            <div class="modal-video-frame">
+                <iframe id="cinemaFrame" src="" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>جميع الحقوق محفوظة &copy; 2025 | <strong>ابو شلول AI</strong></p>
+        <span class="direct-contact"><i class="fa-brands fa-whatsapp"></i> هاتف / واتساب مباشر: +962 77 531 1442</span>
+    </footer>
+
+    <!-- محرك الجافاسكريبت المتقدم -->
+    <script>
+        // 1. محرك خلفية الجزيئات التفاعلية
+        const canvas = document.getElementById('bgCanvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2 + 0.5;
+                this.speedX = Math.random() * 0.8 - 0.4;
+                this.speedY = Math.random() * 0.8 - 0.4;
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                if (this.x > canvas.width) this.x = 0;
+                if (this.x < 0) this.x = canvas.width;
+                if (this.y > canvas.height) this.y = 0;
+                if (this.y < 0) this.y = canvas.height;
+            }
+            draw() {
+                ctx.fillStyle = 'rgba(0, 242, 254, 0.25)';
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        for (let i = 0; i < 45; i++) particles.push(new Particle());
+
+        function animateCanvas() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+            requestAnimationFrame(animateCanvas);
+        }
+        animateCanvas();
+
+        // 2. منطق معالج المشاريع الذكي (AI Wizard)
+        let wizardData = { goal: 'مبيعات وتحويل عملاء', platform: 'ريلز وتيك توك', perk: 'مكساج صوتي وتلوين كامل' };
+
+        function pickOption(el, val) {
+            const parent = el.parentElement;
+            parent.querySelectorAll('.wizard-card').forEach(c => c.classList.remove('selected'));
+            el.classList.add('selected');
+        }
+
+        function goToStep(stepNum) {
+            document.querySelectorAll('.wizard-step').forEach(s => s.classList.remove('active'));
+            document.getElementById('wStep' + stepNum).classList.add('active');
+        }
+
+        function submitWizard() {
+            const goal = document.querySelector('#wStep1 .wizard-card.selected h4').innerText;
+            const platform = document.querySelector('#wStep2 .wizard-card.selected h4').innerText;
+            const perk = document.querySelector('#wStep3 .wizard-card.selected h4').innerText;
+
+            const msg = `مرحباً ابو شلول AI، قمت ببناء خطة مشروعي عبر معالج الـ AI بالموقع:%0A- الهدف: ${goal}%0A- المنصة: ${platform}%0A- الميزة: ${perk}%0Aجاهز للاتفاق وبدء العمل!`;
+            window.open(`https://wa.me/962775311442?text=${msg}`, '_blank');
+        }
+
+        // 3. محاكي الصوت
+        let isEnhanced = true;
+        function toggleAudioDemo(btn) {
+            isEnhanced = !isEnhanced;
+            const visualizer = document.getElementById('visualizer');
+            const txt = document.getElementById('audioModeText');
+            if(isEnhanced) {
+                visualizer.classList.add('wave-active');
+                txt.innerText = 'الوضع: معالجة سينمائية فائقة (Studio AI Master)';
+                btn.innerHTML = '<i class="fa-solid fa-sliders"></i> إيقاف تأثير الاستوديو (معاينة الصوت الخام)';
+            } else {
+                visualizer.classList.remove('wave-active');
+                txt.innerText = 'الوضع: صوت الهاتف الخام (بدون معالجة أو فلاتر)';
+                btn.innerHTML = '<i class="fa-solid fa-wand-magic-sparkles"></i> تفعيل معالجة استوديو ابو شلول AI';
+            }
+        }
+
+        // 4. سلايدر المقارنة
+        const range = document.getElementById('compareRange');
+        const afterImg = document.getElementById('afterImage');
+        const handle = document.getElementById('sliderHandle');
+        range.addEventListener('input', (e) => {
+            const val = e.target.value;
+            afterImg.style.width = val + '%';
+            handle.style.left = val + '%';
+        });
+
+        // 5. المشغل السينمائي والفلترة
+        function filterWorks(cat) {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            event.target.classList.add('active');
+            document.querySelectorAll('.work-card').forEach(c => {
+                c.style.display = (cat === 'all' || c.dataset.cat === cat) ? 'block' : 'none';
+            });
+        }
+
+        function openCinema(id) {
+            document.getElementById('cinemaFrame').src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1`;
+            document.getElementById('cinemaModal').style.display = 'flex';
+        }
+        function closeCinema() {
+            document.getElementById('cinemaFrame').src = '';
+            document.getElementById('cinemaModal').style.display = 'none';
+        }
+
+        // 6. الحاسبة والعملات
+        let currentCurrency = 'USD';
+        function setCurrency(curr, btn) {
+            currentCurrency = curr;
+            document.querySelectorAll('.curr-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            
+            if(curr === 'USD') {
+                document.getElementById('txtSound').innerText = 'مكساج وهندسة صوتية (+20$)';
+                document.getElementById('txtColor').innerText = 'تلوين سينمائي كامل (+30$)';
+                document.getElementById('txtMotion').innerText = 'موشن جرافيك متقدم (+40$)';
+                document.getElementById('txtFast').innerText = 'تسليم سريع خلال 24 ساعة (+50$)';
+            } else {
+                document.getElementById('txtSound').innerText = 'مكساج وهندسة صوتية (+15 د.أ)';
+                document.getElementById('txtColor').innerText = 'تلوين سينمائي كامل (+20 د.أ)';
+                document.getElementById('txtMotion').innerText = 'موشن جرافيك متقدم (+28 د.أ)';
+                document.getElementById('txtFast').innerText = 'تسليم سريع خلال 24 ساعة (+35 د.أ)';
+            }
+            calculateTotal();
+        }
+
+        function selectType(el) {
+            document.querySelectorAll('#typeGroup .calc-btn-select').forEach(b => b.classList.remove('selected'));
+            el.classList.add('selected');
+            calculateTotal();
+        }
+
+        function calculateTotal() {
+            const selectedType = document.querySelector('#typeGroup .calc-btn-select.selected');
+            const isUSD = currentCurrency === 'USD';
+            let total = parseInt(isUSD ? selectedType.dataset.usd : selectedType.dataset.jod);
+            
+            const sound = document.getElementById('addSound');
+            const color = document.getElementById('addColor');
+            const motion = document.getElementById('addMotion');
+            const fast = document.getElementById('addFast');
+
+            if(sound.checked) total += parseInt(isUSD ? sound.dataset.usd : sound.dataset.jod);
+            if(color.checked) total += parseInt(isUSD ? color.dataset.usd : color.dataset.jod);
+            if(motion.checked) total += parseInt(isUSD ? motion.dataset.usd : motion.dataset.jod);
+            if(fast.checked) total += parseInt(isUSD ? fast.dataset.usd : fast.dataset.jod);
+
+            const symbol = isUSD ? '$' : ' دينار أردني';
+            document.getElementById('totalPrice').innerText = isUSD ? (symbol + total) : (total + symbol);
+            return { total, curr: isUSD ? '$' : 'JOD' };
+        }
+
+        function orderViaWhatsApp() {
+            const res = calculateTotal();
+            const msg = `مرحباً ابو شلول AI، قمت بحساب تكلفة مشروعي بقيمة (${res.total} ${res.curr}). أرغب في الاتفاق وبدء العمل!`;
+            window.open(`https://wa.me/962775311442?text=${encodeURIComponent(msg)}`, '_blank');
+        }
+
+        calculateTotal();
+    </script>
+</body>
+</html>
