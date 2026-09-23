@@ -1,0 +1,51 @@
+:root {
+    --bg: #040711; --card: #0b111e; --card2: #111a2e;
+    --green: #10b981; --blue: #3b82f6; --orange: #f59e0b;
+    --red: #ef4444; --purple: #8b5cf6; --cyan: #06b6d4;
+    --gold: #d4a017; --text: #f1f5f9; --muted: #94a3b8;
+    --border: rgba(255,255,255,0.08);
+}
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Cairo',sans-serif; scroll-behavior:smooth; }
+body { background:var(--bg); color:var(--text); overflow-x:hidden; }
+header { position:fixed; top:0; width:100%; background:rgba(4,7,17,0.94); backdrop-filter:blur(15px); z-index:1000; border-bottom:1px solid var(--border); padding:12px 6%; display:flex; justify-content:space-between; align-items:center; }
+.logo { font-size:1.35rem; font-weight:900; color:#fff; text-decoration:none; }
+.logo span { color:var(--cyan); }
+nav ul { display:flex; list-style:none; gap:16px; }
+nav a { color:var(--muted); text-decoration:none; font-weight:600; font-size:0.85rem; }
+nav a:hover { color:var(--cyan); }
+.btn-main { background:var(--green); color:#000; padding:8px 18px; border-radius:8px; font-weight:800; border:none; cursor:pointer; display:inline-flex; align-items:center; gap:6px; }
+.btn-ai { background:linear-gradient(135deg, var(--purple), #6366f1); color:#fff; padding:10px 22px; border-radius:8px; font-weight:800; border:none; cursor:pointer; }
+.btn-gold { background:linear-gradient(135deg, var(--gold), #b3830e); color:#000; padding:8px 18px; border-radius:8px; font-weight:800; border:none; cursor:pointer; }
+.btn-outline { background:var(--card); border:1px solid var(--border); color:#fff; padding:8px 18px; border-radius:8px; font-weight:700; cursor:pointer; }
+.hero { min-height:100vh; padding:120px 6% 60px; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; }
+.hero h1 { font-size:3rem; font-weight:900; max-width:900px; line-height:1.3; margin-bottom:15px; }
+.hero h1 span { color:var(--cyan); }
+.section { padding:80px 6%; max-width:1200px; margin:auto; }
+.sec-header { text-align:center; margin-bottom:40px; }
+.sec-header h2 { font-size:2rem; font-weight:800; }
+
+/* طبقة اليرموك */
+.yarmouk-layer { background:linear-gradient(135deg, rgba(6,182,212,0.06), rgba(139,92,246,0.04)); border:1px solid rgba(6,182,212,0.25); border-radius:18px; padding:30px; }
+.yarmouk-kpi-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(180px, 1fr)); gap:12px; margin:20px 0; }
+.yarmouk-kpi { background:rgba(0,0,0,0.3); border:1px solid var(--border); padding:16px; border-radius:10px; text-align:center; }
+.yarmouk-kpi h5 { font-size:0.75rem; color:var(--muted); }
+.yarmouk-kpi .val { font-size:1.5rem; font-weight:900; color:var(--cyan); }
+.yarmouk-controls { display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:15px; }
+.yarmouk-card { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:18px; }
+.yarmouk-card h4 { font-size:0.95rem; margin-bottom:8px; }
+.switch { position:relative; display:inline-block; width:44px; height:24px; }
+.switch input { opacity:0; width:0; height:0; }
+.slider-sw { position:absolute; cursor:pointer; inset:0; background:rgba(255,255,255,0.1); border-radius:24px; transition:.4s; }
+.slider-sw:before { position:absolute; content:""; height:16px; width:16px; left:4px; bottom:4px; background:#fff; border-radius:50%; transition:.4s; }
+input:checked + .slider-sw { background:var(--cyan); }
+input:checked + .slider-sw:before { transform:translateX(20px); }
+
+.macro-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(130px, 1fr)); gap:10px; margin-bottom:22px; }
+.macro-card { background:var(--card2); border:1px solid var(--border); border-radius:10px; padding:12px; text-align:center; }
+.macro-val { font-size:1.3rem; font-weight:900; }
+.sector-row { display:flex; align-items:center; gap:12px; margin-bottom:10px; padding:10px; background:var(--card2); border-radius:10px; flex-wrap:wrap; }
+.sector-slider { flex:2; min-width:140px; }
+.sector-slider input[type="range"] { width:100%; accent-color:var(--green); }
+.sector-value { font-size:0.95rem; font-weight:900; color:var(--cyan); min-width:55px; text-align:center; }
+footer { border-top:1px solid var(--border); padding:25px 6%; text-align:center; color:var(--muted); font-size:0.8rem; }
+@media(max-width:768px) { .hero h1 { font-size:2rem; } nav ul { display:none; } }
