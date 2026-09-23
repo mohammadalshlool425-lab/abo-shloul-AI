@@ -3,26 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>محاكِي إربد الحي | المنصة التشاركية المتكاملة</title>
+    <title>محاكِي إربد الحي | نظام الحوكمة متعدد الطبقات والذكاء الاصطناعي والصكوك</title>
+    <meta name="description" content="منظومة الحوكمة التشاركية متعددة الطبقات (المستوى الوطني vs المستوى المحلي)، ومحاكاة الاقتصاد الكلي والوقف لمدينة إربد.">
     
-    <!-- خط القاهرة والأيقونات -->
+    <!-- خط القاهرة -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <!-- أيقونات FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
+
     <style>
         :root {
-            --bg: #050811; --card: #0c1220; --card2: #121c32;
-            --green: #10b981; --green-glow: rgba(16, 185, 129, 0.35);
-            --blue: #3b82f6; --orange: #f59e0b; --red: #ef4444;
-            --purple: #8b5cf6; --cyan: #06b6d4; --gold: #d4a017;
-            --text: #f1f5f9; --muted: #94a3b8; --border: rgba(255, 255, 255, 0.08);
+            --bg: #040711;
+            --card: #0b111e;
+            --card2: #111a2e;
+            --green: #10b981;
+            --green-glow: rgba(16, 185, 129, 0.35);
+            --blue: #3b82f6;
+            --blue-glow: rgba(59, 130, 246, 0.35);
+            --orange: #f59e0b;
+            --red: #ef4444;
+            --purple: #8b5cf6;
+            --purple-glow: rgba(139, 92, 246, 0.4);
+            --cyan: #06b6d4;
+            --cyan-glow: rgba(6, 182, 212, 0.35);
+            --gold: #d4a017;
+            --gold-glow: rgba(212, 160, 23, 0.4);
+            --national-flag: #e50914;
+            --text: #f1f5f9;
+            --muted: #94a3b8;
+            --border: rgba(255, 255, 255, 0.08);
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
+
         * { margin:0; padding:0; box-sizing:border-box; font-family:'Cairo',sans-serif; scroll-behavior:smooth; }
         body { background:var(--bg); color:var(--text); overflow-x:hidden; }
 
+        /* Header */
         header {
-            position:fixed; top:0; width:100%; background:rgba(5,8,17,0.94);
+            position:fixed; top:0; width:100%; background:rgba(4,7,17,0.95);
             backdrop-filter:blur(15px); z-index:1000; border-bottom:1px solid var(--border);
             padding:12px 6%; display:flex; justify-content:space-between; align-items:center;
         }
@@ -31,17 +49,66 @@
         nav ul { display:flex; list-style:none; gap:16px; }
         nav a { color:var(--muted); text-decoration:none; font-weight:600; font-size:0.85rem; transition:var(--transition); }
         nav a:hover { color:var(--cyan); }
+        
+        .gov-level-badge {
+            background:rgba(59,130,246,0.12); border:1px solid rgba(59,130,246,0.35);
+            color:var(--blue); padding:4px 14px; border-radius:20px; font-size:0.75rem;
+            font-weight:bold; display:inline-flex; align-items:center; gap:8px;
+        }
+        .pulse-live { width:8px; height:8px; background:var(--cyan); border-radius:50%; animation:blink 1.2s infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.2; } }
 
-        .btn-main { background:var(--green); color:#000; padding:8px 18px; border-radius:8px; font-weight:800; font-size:0.85rem; border:none; cursor:pointer; text-decoration:none; display:inline-flex; align-items:center; gap:6px; }
-        .btn-gold { background:linear-gradient(135deg, var(--gold), #b3830e); color:#000; padding:8px 18px; border-radius:8px; font-weight:800; font-size:0.85rem; border:none; cursor:pointer; text-decoration:none; }
-        .btn-outline { background:var(--card); border:1px solid var(--border); color:#fff; padding:8px 18px; border-radius:8px; font-weight:700; font-size:0.85rem; text-decoration:none; cursor:pointer; }
+        /* Buttons */
+        .btn-main {
+            background:var(--green); color:#000; padding:8px 18px; border-radius:8px;
+            font-weight:800; font-size:0.85rem; border:none; cursor:pointer; text-decoration:none;
+            display:inline-flex; align-items:center; gap:6px; transition:var(--transition);
+        }
+        .btn-main:hover { background:#34d399; transform:translateY(-2px); box-shadow:0 4px 15px var(--green-glow); }
+        
+        .btn-gold {
+            background:linear-gradient(135deg, var(--gold), #b3830e); color:#000;
+            padding:9px 20px; border-radius:8px; font-weight:800; font-size:0.85rem;
+            border:none; cursor:pointer; text-decoration:none; display:inline-flex; align-items:center; gap:6px;
+            transition:var(--transition); box-shadow:0 4px 15px var(--gold-glow);
+        }
 
-        .hero { min-height:100vh; padding:120px 6% 60px; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; background:radial-gradient(circle at 50% 25%, rgba(6,182,212,0.08) 0%, transparent 60%); }
-        .hero h1 { font-size:3rem; font-weight:900; max-width:900px; line-height:1.3; margin-bottom:15px; }
+        .btn-national {
+            background:linear-gradient(135deg, #1e3a8a, #3b82f6); color:#fff;
+            padding:9px 20px; border-radius:8px; font-weight:800; font-size:0.85rem;
+            border:none; cursor:pointer; text-decoration:none; display:inline-flex; align-items:center; gap:8px;
+            transition:var(--transition); box-shadow:0 4px 15px var(--blue-glow);
+        }
+
+        .btn-outline {
+            background:var(--card); border:1px solid var(--border); color:#fff;
+            padding:8px 18px; border-radius:8px; font-weight:700; font-size:0.85rem;
+            cursor:pointer; transition:var(--transition); text-decoration:none;
+            display:inline-flex; align-items:center; gap:6px;
+        }
+        .btn-outline:hover { border-color:var(--cyan); color:var(--cyan); }
+
+        /* Hero */
+        .hero {
+            min-height:100vh; padding:120px 6% 60px; display:flex; flex-direction:column;
+            align-items:center; justify-content:center; text-align:center;
+            background:radial-gradient(circle at 50% 25%, rgba(59,130,246,0.09) 0%, transparent 60%);
+        }
+        .hero-badge {
+            background:rgba(59,130,246,0.1); border:1px solid rgba(59,130,246,0.3);
+            color:var(--blue); padding:6px 18px; border-radius:30px; font-size:0.8rem;
+            font-weight:700; margin-bottom:15px; display:inline-flex; align-items:center; gap:8px;
+        }
+        .hero h1 { font-size:3rem; font-weight:900; max-width:940px; line-height:1.3; margin-bottom:15px; }
         .hero h1 span { color:var(--cyan); }
-        .hero p { color:var(--muted); font-size:1.05rem; max-width:720px; margin-bottom:25px; }
+        .hero p { color:var(--muted); font-size:1.05rem; max-width:740px; margin-bottom:25px; }
+        .hero-actions { display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin-bottom:30px; }
 
-        .stats-row { display:grid; grid-template-columns:repeat(auto-fit, minmax(160px, 1fr)); gap:12px; max-width:980px; width:100%; margin-top:20px; }
+        /* Stats */
+        .stats-row {
+            display:grid; grid-template-columns:repeat(auto-fit, minmax(160px, 1fr));
+            gap:12px; max-width:980px; width:100%;
+        }
         .stat-card { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:15px; text-align:center; }
         .stat-card h3 { font-size:1.5rem; font-weight:900; }
         .stat-card span { color:var(--muted); font-size:0.75rem; }
@@ -49,122 +116,230 @@
         .section { padding:80px 6%; max-width:1200px; margin:auto; }
         .sec-header { text-align:center; margin-bottom:40px; }
         .sec-header h2 { font-size:2rem; font-weight:800; margin-bottom:8px; }
+        .sec-header p { color:var(--muted); font-size:0.9rem; }
+
+        /* 🏛️ نظام الحوكمة متعدد الطبقات (National vs. Provincial Governance) 🏛️ */
+        .governance-system-box {
+            background: linear-gradient(135deg, rgba(59,130,246,0.06), rgba(6,182,212,0.04));
+            border: 1px solid rgba(59,130,246,0.25); border-radius: 18px; padding: 30px;
+            margin-bottom: 40px; position: relative; overflow: hidden;
+        }
+        .governance-system-box::before {
+            content:''; position:absolute; top:0; right:0; width:100%; height:4px;
+            background:linear-gradient(90deg, #1e3a8a, var(--cyan), var(--gold), var(--green));
+        }
+
+        .gov-switcher-tabs {
+            display: flex; justify-content: center; gap: 15px; margin-bottom: 25px; flex-wrap: wrap;
+        }
+        .gov-tab-btn {
+            background: var(--card2); border: 2px solid var(--border); color: var(--muted);
+            padding: 12px 28px; border-radius: 12px; font-weight: 800; font-size: 0.95rem; cursor: pointer; transition: var(--transition);
+            display: flex; align-items: center; gap: 10px;
+        }
+        .gov-tab-btn.active-provincial {
+            border-color: var(--cyan); background: rgba(6,182,212,0.12); color: #fff; box-shadow: 0 4px 20px var(--cyan-glow);
+        }
+        .gov-tab-btn.active-national {
+            border-color: var(--blue); background: rgba(59,130,246,0.15); color: #fff; box-shadow: 0 4px 20px var(--blue-glow);
+        }
+
+        .gov-panels-container {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px; margin-bottom: 25px;
+        }
+
+        .gov-layer-card {
+            background: var(--card); border: 1px solid var(--border); border-radius: 14px;
+            padding: 22px; transition: var(--transition);
+        }
+        .gov-layer-card h4 { font-size: 1.05rem; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+        .gov-layer-card p { font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 15px; }
+
+        .gov-meter-box {
+            background: rgba(0,0,0,0.3); padding: 12px 16px; border-radius: 10px; margin-bottom: 12px;
+        }
+        .meter-header { display: flex; justify-content: space-between; font-size: 0.8rem; font-weight: bold; margin-bottom: 6px; }
+        .meter-bg { width: 100%; height: 8px; background: rgba(255,255,255,0.06); border-radius: 4px; overflow: hidden; }
+        .meter-fill { height: 100%; border-radius: 4px; transition: width 0.5s ease; }
+
+        .jurisdiction-table {
+            width: 100%; border-collapse: collapse; font-size: 0.82rem; margin-top: 10px;
+        }
+        .jurisdiction-table td { padding: 8px 10px; border-bottom: 1px solid rgba(255,255,255,0.04); }
+        .tag-local { color: var(--cyan); font-weight: bold; }
+        .tag-national { color: var(--blue); font-weight: bold; }
 
         /* طبقة اليرموك */
-        .yarmouk-box { background:linear-gradient(135deg, rgba(6,182,212,0.06), rgba(139,92,246,0.04)); border:1px solid rgba(6,182,212,0.25); border-radius:18px; padding:30px; margin-bottom:40px; }
-        .yarmouk-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(180px, 1fr)); gap:12px; margin-bottom:25px; }
-        .yarmouk-card { background:rgba(0,0,0,0.3); border:1px solid var(--border); padding:16px; border-radius:10px; text-align:center; }
-        .yarmouk-card .val { font-size:1.5rem; font-weight:900; color:var(--cyan); }
+        .yarmouk-box { background: linear-gradient(135deg, rgba(6,182,212,0.06), rgba(139,92,246,0.04)); border: 1px solid rgba(6,182,212,0.25); border-radius: 18px; padding: 25px; margin-bottom: 35px; }
+        .yarmouk-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 10px; margin-bottom: 20px; }
+        .yarmouk-card { background: rgba(0,0,0,0.3); border: 1px solid var(--border); padding: 14px; border-radius: 10px; text-align: center; }
+        .yarmouk-card .val { font-size: 1.4rem; font-weight: 900; color: var(--cyan); }
 
-        .controls-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:15px; }
-        .control-item { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:18px; }
-        .switch { position:relative; display:inline-block; width:44px; height:24px; }
-        .switch input { opacity:0; width:0; height:0; }
-        .slider-sw { position:absolute; cursor:pointer; inset:0; background:rgba(255,255,255,0.1); border-radius:24px; transition:.4s; }
-        .slider-sw:before { position:absolute; content:""; height:16px; width:16px; left:4px; bottom:4px; background:#fff; border-radius:50%; transition:.4s; }
-        input:checked + .slider-sw { background:var(--cyan); }
-        input:checked + .slider-sw:before { transform:translateX(20px); }
-
-        /* الاقتصاد الكلي */
-        .sim-container { background:var(--card); border:1px solid var(--border); border-radius:18px; padding:30px; max-width:1050px; margin:auto; }
+        /* المحاكاة والميزانية */
+        .sim-container { background:var(--card); border:1px solid var(--border); border-radius:18px; padding:25px; max-width:1050px; margin:auto; }
         .macro-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(130px, 1fr)); gap:10px; margin-bottom:22px; }
         .macro-card { background:var(--card2); border:1px solid var(--border); border-radius:10px; padding:12px; text-align:center; }
         .macro-val { font-size:1.3rem; font-weight:900; }
 
-        .sector-row { display:flex; align-items:center; gap:12px; margin-bottom:12px; padding:12px; background:var(--card2); border-radius:10px; flex-wrap:wrap; }
-        .sector-slider { flex:2; min-width:150px; }
+        .sector-row { display:flex; align-items:center; gap:12px; margin-bottom:10px; padding:10px; background:var(--card2); border-radius:10px; flex-wrap:wrap; }
+        .sector-slider { flex:2; min-width:140px; }
         .sector-slider input[type="range"] { width:100%; accent-color:var(--green); cursor:pointer; }
-        .sector-value { font-size:1rem; font-weight:900; color:var(--cyan); min-width:60px; text-align:center; }
+        .sector-value { font-size:0.95rem; font-weight:900; color:var(--cyan); min-width:55px; text-align:center; }
+
+        /* الصكوك والوقف */
+        .crowd-islamic-section { background: rgba(212,160,23,0.04); border: 1px solid rgba(212,160,23,0.25); border-radius: 18px; padding: 25px; margin-top: 30px; }
+        .crowd-campaigns-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; margin-top: 15px; }
+        .campaign-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 18px; }
 
         footer { border-top:1px solid var(--border); padding:25px 6%; text-align:center; color:var(--muted); font-size:0.8rem; }
-        @media(max-width:768px) { .hero h1 { font-size:2rem; } nav ul { display:none; } .sector-row { flex-direction:column; text-align:center; } }
+
+        @media(max-width:768px) {
+            .hero h1 { font-size:2rem; }
+            nav ul { display:none; }
+            .sector-row { flex-direction:column; text-align:center; }
+        }
     </style>
 </head>
 <body>
 
+    <!-- Header -->
     <header>
         <a href="#" class="logo"><i class="fa-solid fa-city"></i> محاكِي <span>إربد</span></a>
+        <div class="gov-level-badge" id="headerGovBadge"><div class="pulse-live"></div> المستوى المحلي: مجلس محافظة وبلدية إربد</div>
         <nav>
             <ul>
+                <li><a href="#hero">الرئيسية</a></li>
+                <li><a href="#governance-system">الحوكمة الثنائية</a></li>
                 <li><a href="#yarmouk">طبقة اليرموك</a></li>
                 <li><a href="#macro">الاقتصاد الكلي</a></li>
                 <li><a href="#islamic">الصكوك والوقف</a></li>
             </ul>
         </nav>
-        <a href="#yarmouk" class="btn-main"><i class="fa-solid fa-graduation-cap"></i> قطاع اليرموك</a>
+        <a href="#governance-system" class="btn-national"><i class="fa-solid fa-building-columns"></i> تبديل المستوى الحكومي</a>
     </header>
 
+    <!-- Hero -->
     <section class="hero">
-        <h1>محاكاة حضرية متكاملة لمدينة إربد <span>بطبقة اليرموك والاقتصاد الكلي</span></h1>
-        <p>إدارة الموازنة البلدية (420M د.أ)، سد العجز بالصكوك والوقف، وضبط مؤشرات السكن والنقل الطلابي لـ 135,000 طالب.</p>
-        <div style="display:flex; gap:12px; flex-wrap:wrap; justify-content:center;">
-            <a href="#yarmouk" class="btn-main"><i class="fa-solid fa-graduation-cap"></i> طبقة اليرموك</a>
-            <a href="#macro" class="btn-outline"><i class="fa-solid fa-sliders"></i> الاقتصاد الكلي</a>
-            <a href="#islamic" class="btn-gold"><i class="fa-solid fa-mosque"></i> الصكوك والوقف</a>
+        <div class="hero-badge"><i class="fa-solid fa-sitemap"></i> نظام الحوكمة التشاركي ثنائي الطبقات (National vs. Provincial)</div>
+        <h1>تنسيق السياسات التنموية بين <span>مجلس محافظة إربد والحكومة المركزية</span></h1>
+        <p>المدن لا تدار بمعزل عن الدولة. وازن بين المخصصات والمنح الحكومية المركزية من عمان، وبين استقلالية مجلس محافظة إربد في جمع الضرائب، إدارة الوقف، وإصدار الصكوك.</p>
+        
+        <div class="hero-actions">
+            <a href="#governance-system" class="btn-national"><i class="fa-solid fa-layer-group"></i> استكشاف الحوكمة الثنائية</a>
+            <a href="#macro" class="btn-outline"><i class="fa-solid fa-sliders"></i> موازنة إربد الكلية (420M)</a>
         </div>
+
         <div class="stats-row">
-            <div class="stat-card"><h3 style="color:var(--cyan);">135,000</h3><span>طالب جامعي</span></div>
-            <div class="stat-card"><h3 style="color:var(--green);">420M د.أ</h3><span>الموازنة البلدية</span></div>
-            <div class="stat-card"><h3 style="color:var(--gold);">24.3M د.أ</h3><span>صكوك تنموية</span></div>
-            <div class="stat-card"><h3 style="color:var(--purple);">0%</h3><span>ديون ربوية</span></div>
+            <div class="stat-card"><h3 style="color:var(--blue);" id="centralGrantVal">165M د.أ</h3><span>منح ومخصصات حكومية مركزية</span></div>
+            <div class="stat-card"><h3 style="color:var(--cyan);" id="localRevenueVal">148M د.أ</h3><span>إيرادات بلدية وضرائب محلية</span></div>
+            <div class="stat-card"><h3 style="color:var(--gold);" id="sovereignSukukBacking">100M د.أ</h3><span>سقف الكفالات السيادية للصكوك</span></div>
+            <div class="stat-card"><h3 style="color:var(--green);" id="autonomyScore">78%</h3><span>مؤشر اللامركزية والاستقلالية</span></div>
+        </div>
+    </section>
+
+    <!-- 🏛️ نظام الحوكمة متعدد الطبقات (National vs. Provincial Governance) 🏛️ -->
+    <section class="section" id="governance-system">
+        <div class="sec-header">
+            <h2>نظام الحوكمة متعدد الطبقات واللامركزية</h2>
+            <p>اختر المستوى الإداري للتحكم بالصلاحيات والمخصصات المالية بين العاصمة عمان ومحافظة إربد</p>
+        </div>
+
+        <div class="governance-system-box">
+            <!-- أزرار التبديل بين المستوى الوطني والمحلي -->
+            <div class="gov-switcher-tabs">
+                <button class="gov-tab-btn active-provincial" id="btnProvincial" onclick="switchGovView('provincial')">
+                    <i class="fa-solid fa-tree-city" style="color:var(--cyan);"></i> مستوى مجلس محافظة وبلدية إربد (Local)
+                </button>
+                <button class="gov-tab-btn" id="btnNational" onclick="switchGovView('national')">
+                    <i class="fa-solid fa-landmark-dome" style="color:var(--blue);"></i> مستوى الحكومة المركزية والوزارات (National)
+                </button>
+            </div>
+
+            <div class="gov-panels-container">
+                <!-- بطاقة الموازنة والتحويلات المركزية -->
+                <div class="gov-layer-card">
+                    <h4 style="color:var(--blue);"><i class="fa-solid fa-money-bill-transfer"></i> التحويلات المالية المركزية (عمان $\rightarrow$ إربد)</h4>
+                    <p>نسبة الدعم الحكومي المركزي السنوي المخصص لمشاريع التنمية واللامركزية في محافظة إربد.</p>
+
+                    <div class="gov-meter-box">
+                        <div class="meter-header">
+                            <span>حصة إربد من الموازنة العامة للدولة:</span>
+                            <strong style="color:var(--blue);" id="grantAmountText">165M د.أ (39.2%)</strong>
+                        </div>
+                        <div class="meter-bg"><div class="meter-fill" id="grantMeterFill" style="width:39%; background:var(--blue);"></div></div>
+                    </div>
+
+                    <div style="display:flex; gap:10px; margin-top:15px;">
+                        <button class="btn-outline" style="flex:1;" onclick="adjustCentralGrants(15)">
+                            <i class="fa-solid fa-plus"></i> طلب زيادة مخصصات اللامركزية (+15M)
+                        </button>
+                        <button class="btn-outline" style="flex:1;" onclick="adjustCentralGrants(-15)">
+                            <i class="fa-solid fa-minus"></i> تقشف مالي حكومي (-15M)
+                        </button>
+                    </div>
+                </div>
+
+                <!-- بطاقة مصفوفة الصلاحيات وقانون اللامركزية -->
+                <div class="gov-layer-card">
+                    <h4 style="color:var(--cyan);"><i class="fa-solid fa-scale-balanced"></i> مصفوفة الصلاحيات والاختصاص الدستوري</h4>
+                    <p>توزيع مسؤولية اتخاذ القرار بين مجلس محافظة إربد والوزارات المركزية في العاصمة.</p>
+
+                    <table class="jurisdiction-table">
+                        <tr>
+                            <td>النقل الطلابي والباصات الترددية:</td>
+                            <td class="tag-local"><i class="fa-solid fa-check"></i> اختصاص محلي (بلدية إربد)</td>
+                        </tr>
+                        <tr>
+                            <td>الطرق الدولية السريعة (طريق إربد - عمان):</td>
+                            <td class="tag-national"><i class="fa-solid fa-landmark"></i> اختصاص وطني (وزارة الأشغال)</td>
+                        </tr>
+                        <tr>
+                            <td>الموافقة على الصكوك السيادية (>20M):</td>
+                            <td class="tag-national"><i class="fa-solid fa-stamp"></i> موافقة مجلس الوزراء</td>
+                        </tr>
+                        <tr>
+                            <td>الوقف العقاري وسكنات الطلبة:</td>
+                            <td class="tag-local"><i class="fa-solid fa-check"></i> مجلس أوقاف إربد المشترك</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- 🎓 طبقة اليرموك -->
     <section class="section" id="yarmouk">
         <div class="sec-header">
-            <h2>طبقة جامعة اليرموك والخدمات الطلابية</h2>
+            <h2>طبقة جامعة اليرموك والخدمات الطلابية (القطاع المحلي)</h2>
             <p>تخطيط النقل والسكن الطلابي وأثره على الازدحام وازدهار المشاريع الصغيرة</p>
         </div>
         <div class="yarmouk-box">
             <div class="yarmouk-grid">
-                <div class="yarmouk-card"><h5 style="font-size:0.75rem; color:var(--muted);">الازدحام الصباحي (7-9 ص)</h5><div class="val" id="yCongestion" style="color:var(--red);">82%</div></div>
-                <div class="yarmouk-card"><h5 style="font-size:0.75rem; color:var(--muted);">ازدهار المشاريع الصغيرة</h5><div class="val" id="yBizBoom" style="color:var(--green);">72%</div></div>
-                <div class="yarmouk-card"><h5 style="font-size:0.75rem; color:var(--muted);">تحمل أسعار السكن</h5><div class="val" id="yHousing" style="color:var(--gold);">68%</div></div>
-                <div class="yarmouk-card"><h5 style="font-size:0.75rem; color:var(--muted);">الإنفاق الطلابي اليومي</h5><div class="val" id="ySpend" style="color:var(--cyan);">2.4M د.أ</div></div>
-            </div>
-            <div class="controls-grid">
-                <div class="control-item">
-                    <h4 style="margin-bottom:6px;"><i class="fa-solid fa-bus" style="color:var(--cyan);"></i> باصات تردد سريع لليرموك</h4>
-                    <p style="font-size:0.8rem; color:var(--muted); margin-bottom:10px;">ربط مجمع عمان ومجمع الشمال مباشرة بالبوابة الشمالية.</p>
-                    <div style="display:flex; justify-content:space-between; align-items:center;">
-                        <span style="font-size:0.8rem; font-weight:bold;">تفعيل الخط السريع</span>
-                        <label class="switch"><input type="checkbox" id="tBuses" checked onchange="updateYarmouk()"><span class="slider-sw"></span></label>
-                    </div>
-                </div>
-                <div class="control-item">
-                    <h4 style="margin-bottom:6px;"><i class="fa-solid fa-house" style="color:var(--gold);"></i> سقف الإيجارات الطلابية</h4>
-                    <p style="font-size:0.8rem; color:var(--muted); margin-bottom:10px;">تحديد سقف عادل لأسعار الاستوديوهات في شارع الجامعة.</p>
-                    <div style="display:flex; justify-content:space-between; align-items:center;">
-                        <span style="font-size:0.8rem; font-weight:bold;">تفعيل السقف العادل</span>
-                        <label class="switch"><input type="checkbox" id="tHousing" checked onchange="updateYarmouk()"><span class="slider-sw"></span></label>
-                    </div>
-                </div>
+                <div class="yarmouk-card"><h5>الازدحام الصباحي (7-9 ص)</h5><div class="val" id="yCongestion" style="color:var(--red);">82%</div></div>
+                <div class="yarmouk-card"><h5>ازدهار المشاريع الصغيرة</h5><div class="val" id="yBizBoom" style="color:var(--green);">72%</div></div>
+                <div class="yarmouk-card"><h5>تحمل أسعار السكن</h5><div class="val" id="yHousing" style="color:var(--gold);">68%</div></div>
+                <div class="yarmouk-card"><h5>الإنفاق الطلابي اليومي</h5><div class="val" id="ySpend" style="color:var(--cyan);">2.4M د.أ</div></div>
             </div>
         </div>
     </section>
 
-    <!-- 📊 الاقتصاد الكلي -->
+    <!-- 📊 الاقتصاد الكلي والموازنة -->
     <section class="section" id="macro">
         <div class="sec-header">
             <h2>محاكي الاقتصاد الكلي وتوزيع الميزانية (420M د.أ)</h2>
-            <p>توزيع الإنفاق يحسب فورياً التضخم، السيولة النقدية، ومعدلات النمو</p>
+            <p>تكامل المنح الحكومية المركزية مع الإيرادات البلدية والصكوك</p>
         </div>
         <div class="sim-container">
             <div class="macro-grid">
                 <div class="macro-card"><h4 style="font-size:0.7rem; color:var(--muted);">التضخم</h4><div class="macro-val" id="vInf" style="color:var(--orange);">3.2%</div></div>
-                <div class="macro-card"><h4 style="font-size:0.7rem; color:var(--muted);">الدين</h4><div class="macro-val" id="vDebt" style="color:var(--red);">118M</div></div>
-                <div class="macro-card"><h4 style="font-size:0.7rem; color:var(--muted);">السيولة</h4><div class="macro-val" id="vLiq" style="color:var(--cyan);">76%</div></div>
-                <div class="macro-card"><h4 style="font-size:0.7rem; color:var(--muted);">النمو</h4><div class="macro-val" id="vGro" style="color:var(--green);">2.4%</div></div>
-                <div class="macro-card"><h4 style="font-size:0.7rem; color:var(--muted);">البطالة</h4><div class="macro-val" id="vUne" style="color:var(--red);">17.4%</div></div>
-                <div class="macro-card"><h4 style="font-size:0.7rem; color:var(--muted);">الرضا العام</h4><div class="macro-val" id="vSat" style="color:var(--purple);">76%</div></div>
+                <div class="macro-card"><h4 style="font-size:0.7rem; color:var(--muted);">الدين المحلي</h4><div class="macro-val" id="vDebt" style="color:var(--green);">0M د.أ (بالمصرفية الإسلامية)</div></div>
+                <div class="macro-card"><h4 style="font-size:0.7rem; color:var(--muted);">السيولة</h4><div class="macro-val" id="vLiq" style="color:var(--cyan);">78%</div></div>
+                <div class="macro-card"><h4 style="font-size:0.7rem; color:var(--muted);">النمو</h4><div class="macro-val" id="vGro" style="color:var(--green);">2.6%</div></div>
             </div>
-            <div class="sector-row"><i class="fa-solid fa-bus" style="color:var(--red); width:30px;"></i><span style="flex:1;">النقل والطلبة</span><div class="sector-slider"><input type="range" min="20" max="150" value="95" id="s0" oninput="runSim()"></div><div class="sector-value" id="val0">95M</div></div>
+            <div class="sector-row"><i class="fa-solid fa-bus" style="color:var(--cyan); width:30px;"></i><span style="flex:1;">النقل والطلبة</span><div class="sector-slider"><input type="range" min="20" max="150" value="95" id="s0" oninput="runSim()"></div><div class="sector-value" id="val0">95M</div></div>
             <div class="sector-row"><i class="fa-solid fa-road" style="color:var(--orange); width:30px;"></i><span style="flex:1;">البنية التحتية</span><div class="sector-slider"><input type="range" min="20" max="150" value="90" id="s1" oninput="runSim()"></div><div class="sector-value" id="val1">90M</div></div>
-            <div class="sector-row"><i class="fa-solid fa-leaf" style="color:var(--green); width:30px;"></i><span style="flex:1;">البيئة والحدائق</span><div class="sector-slider"><input type="range" min="10" max="100" value="55" id="s2" oninput="runSim()"></div><div class="sector-value" id="val2">55M</div></div>
             <div class="sector-row"><i class="fa-solid fa-graduation-cap" style="color:var(--blue); width:30px;"></i><span style="flex:1;">التعليم واليرموك</span><div class="sector-slider"><input type="range" min="10" max="100" value="70" id="s3" oninput="runSim()"></div><div class="sector-value" id="val3">70M</div></div>
-            <div class="sector-row"><i class="fa-solid fa-hospital" style="color:var(--purple); width:30px;"></i><span style="flex:1;">الصحة</span><div class="sector-slider"><input type="range" min="10" max="100" value="55" id="s4" oninput="runSim()"></div><div class="sector-value" id="val4">55M</div></div>
-            <div class="sector-row"><i class="fa-solid fa-shield-halved" style="color:var(--cyan); width:30px;"></i><span style="flex:1;">الأمن</span><div class="sector-slider"><input type="range" min="10" max="100" value="45" id="s5" oninput="runSim()"></div><div class="sector-value" id="val5">45M</div></div>
         </div>
     </section>
 
@@ -173,46 +348,78 @@
         <div class="sec-header">
             <h2>سد العجز بالصكوك التنموية والوقف الرقمي</h2>
         </div>
-        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:15px; max-width:900px; margin:auto;">
-            <div style="background:var(--card); border:1px solid rgba(212,160,23,0.3); border-radius:12px; padding:20px;">
-                <span style="background:rgba(212,160,23,0.15); color:var(--gold); font-size:0.7rem; font-weight:bold; padding:2px 8px; border-radius:10px;">صكوك إجارة</span>
-                <h4 style="margin:8px 0;">صكوك نفق ومواقف شارع الجامعة</h4>
-                <p style="font-size:0.8rem; color:var(--muted); margin-bottom:12px;">تمويل 18M د.أ بعائد تشغيلي 6.8% سنوياً من رسوم المواقف.</p>
-                <button class="btn-gold" style="width:100%; justify-content:center;" onclick="alert('تم تسجيل الاكتتاب في الصكوك بنجاح!')">اكتتب الآن</button>
-            </div>
-            <div style="background:var(--card); border:1px solid rgba(16,185,129,0.3); border-radius:12px; padding:20px;">
-                <span style="background:rgba(16,185,129,0.15); color:var(--green); font-size:0.7rem; font-weight:bold; padding:2px 8px; border-radius:10px;">وقف تعليمي</span>
-                <h4 style="margin:8px 0;">سهم الوقف السكني لطلبة اليرموك</h4>
-                <p style="font-size:0.8rem; color:var(--muted); margin-bottom:12px;">مجمع سكني وقفي يؤجر للطلاب بأسعار رمزية لدعم المنح.</p>
-                <button class="btn-main" style="width:100%; justify-content:center;" onclick="alert('تم تسجيل مساهمتك الوقفية بنجاح!')">ساهم بسهم وقفي</button>
+        <div class="crowd-islamic-section">
+            <div class="crowd-campaigns-grid">
+                <div class="campaign-card"><h4>صكوك نفق ومواقف شارع الجامعة (18M د.أ)</h4><p style="font-size:0.8rem; color:var(--muted); margin:6px 0 12px;">بكفالة تشغيلية بلدية وعائد 6.8% سنوياً للمكتتبين.</p><button class="btn-gold" style="width:100%; justify-content:center;" onclick="alert('تم تسجيل الاكتتاب في الصكوك بنجاح!')">اكتتب الآن</button></div>
+                <div class="campaign-card"><h4>سهم الوقف السكني لطلبة اليرموك (8.5M د.أ)</h4><p style="font-size:0.8rem; color:var(--muted); margin:6px 0 12px;">ريع دائم لكفالة منح الطلبة وتأمين سكنات مدعومة.</p><button class="btn-main" style="width:100%; justify-content:center;" onclick="alert('تم تسجيل المساهمة الوقفية بنجاح!')">ساهم بسهم وقفي</button></div>
             </div>
         </div>
     </section>
 
-    <footer><p>جميع الحقوق محفوظة &copy; 2025 | <strong>محاكِي إربد الحضري المتكامل</strong></p></footer>
+    <footer><p>جميع الحقوق محفوظة &copy; 2025 | <strong>محاكِي إربد الحي</strong> - نظام الحوكمة متعدد الطبقات والتفاوض اللامركزي</p></footer>
 
+    <!-- محرك الحوكمة الثنائية والمحاكاة -->
     <script>
-        function updateYarmouk() {
-            const b = document.getElementById('tBuses').checked;
-            const h = document.getElementById('tHousing').checked;
-            document.getElementById('yCongestion').innerText = (b ? '64%' : '88%');
-            document.getElementById('yBizBoom').innerText = (h ? '78%' : '65%');
-            document.getElementById('yHousing').innerText = (h ? '85%' : '52%');
+        let centralGrant = 165; // المنح المركزية بالمليون دينار
+        let currentGovLevel = 'provincial';
+
+        function switchGovView(level) {
+            currentGovLevel = level;
+            const btnProv = document.getElementById('btnProvincial');
+            const btnNat = document.getElementById('btnNational');
+            const badge = document.getElementById('headerGovBadge');
+
+            if (level === 'provincial') {
+                btnProv.className = 'gov-tab-btn active-provincial';
+                btnNat.className = 'gov-tab-btn';
+                badge.innerHTML = '<div class="pulse-live"></div> المستوى المحلي: مجلس محافظة وبلدية إربد';
+                badge.style.color = 'var(--cyan)';
+                badge.style.borderColor = 'rgba(6,182,212,0.35)';
+            } else {
+                btnNat.className = 'gov-tab-btn active-national';
+                btnProv.className = 'gov-tab-btn';
+                badge.innerHTML = '<div class="pulse-live" style="background:var(--blue);"></div> المستوى الوطني: الحكومة المركزية ووزارة الإدارة المحلية';
+                badge.style.color = 'var(--blue)';
+                badge.style.borderColor = 'rgba(59,130,246,0.35)';
+            }
+        }
+
+        function adjustCentralGrants(delta) {
+            centralGrant = Math.max(100, Math.min(250, centralGrant + delta));
+            const pct = ((centralGrant / 420) * 100).toFixed(1);
+            
+            document.getElementById('grantAmountText').innerText = `${centralGrant}M د.أ (${pct}%)`;
+            document.getElementById('grantMeterFill').style.width = pct + '%';
+            document.getElementById('centralGrantVal').innerText = `${centralGrant}M د.أ`;
+
+            // تحديث مؤشر الاستقلالية
+            const autonomy = Math.round(100 - (centralGrant / 420) * 50);
+            document.getElementById('autonomyScore').innerText = autonomy + '%';
+
+            alert(delta > 0 
+                ? `نجحت مفاوضات مجلس محافظة إربد مع وزارة المالية في عمان!\nتمت زيادة التحويلات المركزية بمقدار (+15M د.أ).`
+                : `فرضت الحكومة المركزية في عمان إجراءات تقشفية لخفض العجز الوطني!\nتم تقليص المنح الموجهة لمحافظة إربد بمقدار (-15M د.أ).`
+            );
+            runSim();
         }
 
         function runSim() {
-            const allocs = [0,1,2,3,4,5].map(i => parseInt(document.getElementById('s'+i).value));
-            allocs.forEach((v, i) => document.getElementById('val'+i).innerText = v + 'M');
+            const s0 = parseInt(document.getElementById('s0').value);
+            const s1 = parseInt(document.getElementById('s1').value);
+            const s3 = parseInt(document.getElementById('s3').value);
+            
+            document.getElementById('val0').innerText = s0 + 'M';
+            document.getElementById('val1').innerText = s1 + 'M';
+            document.getElementById('val3').innerText = s3 + 'M';
 
-            const total = allocs.reduce((a, b) => a + b, 0);
-            const bal = 420 - total;
-            document.getElementById('vInf').innerText = Math.max(1.2, (3.2 + (total > 420 ? (total-420)*0.03 : -0.2))).toFixed(1) + '%';
-            document.getElementById('vLiq').innerText = Math.max(15, Math.min(95, (76 + bal*0.1))).toFixed(0) + '%';
-            document.getElementById('vGro').innerText = (2.4 + (allocs[3]/420)*3).toFixed(1) + '%';
-            document.getElementById('vSat').innerText = Math.min(96, Math.max(20, Math.round(74 + bal*0.05))).toFixed(0) + '%';
+            const total = s0 + s1 + s3 + 145;
+            const balance = (centralGrant + 148 + 107) - total;
+            
+            document.getElementById('vInf').innerText = Math.max(1.2, (3.2 + (total > 420 ? 0.4 : -0.2))).toFixed(1) + '%';
+            document.getElementById('vLiq').innerText = Math.max(20, Math.min(95, 75 + balance * 0.1)).toFixed(0) + '%';
+            document.getElementById('vGro').innerText = (2.2 + (s3 / 420) * 3).toFixed(1) + '%';
         }
 
-        updateYarmouk();
         runSim();
     </script>
 </body>
