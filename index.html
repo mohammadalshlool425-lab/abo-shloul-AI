@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>محاكِي إربد الحي | المنصة التشاركية المتكاملة</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+    <header>
+        <a href="#" class="logo"><i class="fa-solid fa-city"></i> محاكِي <span>إربد</span></a>
+        <nav>
+            <ul>
+                <li><a href="#yarmouk">طبقة اليرموك</a></li>
+                <li><a href="#macro">الاقتصاد الكلي</a></li>
+                <li><a href="#factions">التفاوض الفصائلي</a></li>
+                <li><a href="#islamic">الصكوك والوقف</a></li>
+            </ul>
+        </nav>
+        <a href="#yarmouk" class="btn-main"><i class="fa-solid fa-graduation-cap"></i> جامعة اليرموك</a>
+    </header>
+
+    <section class="hero">
+        <div style="background:rgba(6,182,212,0.1); border:1px solid rgba(6,182,212,0.3); color:var(--cyan); padding:6px 18px; border-radius:30px; font-size:0.8rem; font-weight:700; margin-bottom:15px; display:inline-flex; align-items:center; gap:8px;">
+            <i class="fa-solid fa-graduation-cap"></i> المنصة التشاركية الشاملة لمدينة إربد
+        </div>
+        <h1>محاكاة حضرية متكاملة لمدينة إربد <span>بطبقة اليرموك والاقتصاد الإسلامي</span></h1>
+        <p style="color:var(--muted); max-width:700px; margin-bottom:25px;">إدارة الموازنة العامة (420M د.أ)، سد العجز بالصكوك والوقف، تخفيف أزمات النقل الطلابي، والتفاوض اللحظي بين الفصائل.</p>
+        <div style="display:flex; gap:12px; flex-wrap:wrap; justify-content:center;">
+            <a href="#yarmouk" class="btn-main"><i class="fa-solid fa-graduation-cap"></i> طبقة اليرموك</a>
+            <a href="#macro" class="btn-outline"><i class="fa-solid fa-sliders"></i> الاقتصاد الكلي</a>
+            <a href="#islamic" class="btn-gold"><i class="fa-solid fa-mosque"></i> الصكوك والوقف</a>
+        </div>
+    </section>
+
+    <!-- 🎓 طبقة اليرموك -->
+    <section class="section" id="yarmouk">
+        <div class="sec-header">
+            <h2>طبقة جامعة اليرموك والاقتصاد الطلابي</h2>
+            <p>أي تعديل في خدمات النقل والسكن ينعكس فوراً على ازدهار الأسواق والازدحام الصباحي</p>
+        </div>
+        <div class="yarmouk-layer">
+            <div class="yarmouk-kpi-grid">
+                <div class="yarmouk-kpi"><h5>الازدحام الصباحي (7-9 ص)</h5><div class="val" id="yCongestion" style="color:var(--red);">82%</div></div>
+                <div class="yarmouk-kpi"><h5>ازدهار المشاريع الصغيرة</h5><div class="val" id="yBizBoom" style="color:var(--green);">72%</div></div>
+                <div class="yarmouk-kpi"><h5>تحمل أسعار السكن</h5><div class="val" id="yHousing" style="color:var(--gold);">68%</div></div>
+                <div class="yarmouk-kpi"><h5>الإنفاق الطلابي اليومي</h5><div class="val" id="ySpend" style="color:var(--cyan);">2.4M د.أ</div></div>
+            </div>
+            <div class="yarmouk-controls">
+                <div class="yarmouk-card">
+                    <h4><i class="fa-solid fa-clock" style="color:var(--cyan);"></i> الدوام المرن</h4>
+                    <p style="font-size:0.8rem; color:var(--muted); margin-bottom:10px;">فترتان دراسيتان لتخفيف الازدحام.</p>
+                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                        <span style="font-size:0.82rem; font-weight:bold;">تفعيل</span>
+                        <label class="switch"><input type="checkbox" id="toggleCampus" checked onchange="updateYarmoukLayer()"><span class="slider-sw"></span></label>
+                    </div>
+                </div>
+                <div class="yarmouk-card">
+                    <h4><i class="fa-solid fa-store" style="color:var(--gold);"></i> دعم المشاريع الصغيرة</h4>
+                    <p style="font-size:0.8rem; color:var(--muted); margin-bottom:10px;">تسهيل تراخيص مكتبات ومطاعم شارع الجامعة.</p>
+                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                        <span style="font-size:0.82rem; font-weight:bold;">تفعيل</span>
+                        <label class="switch"><input type="checkbox" id="toggleBiz" checked onchange="updateYarmoukLayer()"><span class="slider-sw"></span></label>
+                    </div>
+                </div>
+                <div class="yarmouk-card">
+                    <h4><i class="fa-solid fa-bus" style="color:var(--green);"></i> حافلات ترددية سريعة</h4>
+                    <p style="font-size:0.8rem; color:var(--muted); margin-bottom:10px;">ربط مجمع عمان الجديد باليرموك مباشرة.</p>
+                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                        <span style="font-size:0.82rem; font-weight:bold;">تفعيل</span>
+                        <label class="switch"><input type="checkbox" id="toggleMorning" checked onchange="updateYarmoukLayer()"><span class="slider-sw"></span></label>
+                    </div>
+                </div>
+                <div class="yarmouk-card">
+                    <h4><i class="fa-solid fa-house" style="color:var(--purple);"></i> سقف الإيجارات الطلابي</h4>
+                    <p style="font-size:0.8rem; color:var(--muted); margin-bottom:10px;">تحديد سقف عادل لإيجارات سكنات الطلاب.</p>
+                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                        <span style="font-size:0.82rem; font-weight:bold;">تفعيل</span>
+                        <label class="switch"><input type="checkbox" id="toggleHousing" checked onchange="updateYarmoukLayer()"><span class="slider-sw"></span></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 📊 الاقتصاد الكلي -->
+    <section class="section" id="macro">
+        <div class="sec-header">
+            <h2>محاكي الاقتصاد الكلي والموازنة (420M د.أ)</h2>
+            <p>توزيع الميزانية ينعكس فورياً على التضخم، السيولة، والنمو</p>
+        </div>
+        <div style="background:var(--card); border:1px solid var(--border); border-radius:18px; padding:25px; max-width:1000px; margin:auto;">
+            <div class="macro-grid">
+                <div class="macro-card"><h4 style="font-size:0.7rem; color:var(--muted);">التضخم</h4><div class="macro-val" id="valInflation" style="color:var(--orange);">3.2%</div></div>
+                <div class="macro-card"><h4 style="font-size:0.7rem; color:var(--muted);">الدين</h4><div class="macro-val" id="valDebt" style="color:var(--red);">120M</div></div>
+                <div class="macro-card"><h4 style="font-size:0.7rem; color:var(--muted);">السيولة</h4><div class="macro-val" id="valLiquidity" style="color:var(--cyan);">75%</div></div>
+                <div class="macro-card"><h4 style="font-size:0.7rem; color:var(--muted);">النمو</h4><div class="macro-val" id="valGrowth" style="color:var(--green);">2.1%</div></div>
+                <div class="macro-card"><h4 style="font-size:0.7rem; color:var(--muted);">البطالة</h4><div class="macro-val" id="valUnemployment" style="color:var(--red);">18%</div></div>
+                <div class="macro-card"><h4 style="font-size:0.7rem; color:var(--muted);">الرضا العام</h4><div class="macro-val" id="valSatisfaction" style="color:var(--purple);">74%</div></div>
+            </div>
+            <div class="sector-row"><i class="fa-solid fa-bus" style="color:var(--cyan); width:30px;"></i><span style="flex:1;">النقل والطلبة</span><div class="sector-slider"><input type="range" min="20" max="150" value="95" id="s0" oninput="dispatchMacroUpdate()"></div><div class="sector-value" id="v0">95M</div></div>
+            <div class="sector-row"><i class="fa-solid fa-road" style="color:var(--orange); width:30px;"></i><span style="flex:1;">البنية التحتية</span><div class="sector-slider"><input type="range" min="20" max="150" value="90" id="s1" oninput="dispatchMacroUpdate()"></div><div class="sector-value" id="v1">90M</div></div>
+            <div class="sector-row"><i class="fa-solid fa-leaf" style="color:var(--green); width:30px;"></i><span style="flex:1;">البيئة</span><div class="sector-slider"><input type="range" min="10" max="100" value="55" id="s2" oninput="dispatchMacroUpdate()"></div><div class="sector-value" id="v2">55M</div></div>
+            <div class="sector-row"><i class="fa-solid fa-graduation-cap" style="color:var(--blue); width:30px;"></i><span style="flex:1;">التعليم واليرموك</span><div class="sector-slider"><input type="range" min="10" max="100" value="70" id="s3" oninput="dispatchMacroUpdate()"></div><div class="sector-value" id="v3">70M</div></div>
+            <div class="sector-row"><i class="fa-solid fa-hospital" style="color:var(--purple); width:30px;"></i><span style="flex:1;">الصحة</span><div class="sector-slider"><input type="range" min="10" max="100" value="55" id="s4" oninput="dispatchMacroUpdate()"></div><div class="sector-value" id="v4">55M</div></div>
+            <div class="sector-row"><i class="fa-solid fa-shield-halved" style="color:var(--cyan); width:30px;"></i><span style="flex:1;">الأمن</span><div class="sector-slider"><input type="range" min="10" max="100" value="45" id="s5" oninput="dispatchMacroUpdate()"></div><div class="sector-value" id="v5">45M</div></div>
+        </div>
+    </section>
+
+    <!-- 🕌 الصكوك والوقف -->
+    <section class="section" id="islamic">
+        <div class="sec-header">
+            <h2>سد العجز بالصكوك التنموية والوقف الرقمي</h2>
+            <p>تمويل المشاريع الكبرى بدون ديون ربوية</p>
+        </div>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:15px; max-width:900px; margin:auto;">
+            <div style="background:var(--card); border:1px solid rgba(212,160,23,0.3); border-radius:12px; padding:20px;">
+                <span style="background:rgba(212,160,23,0.15); color:var(--gold); font-size:0.7rem; font-weight:bold; padding:2px 8px; border-radius:10px;">صكوك إجارة</span>
+                <h4 style="margin:8px 0;">صكوك نفق ومواقف شارع الجامعة</h4>
+                <p style="font-size:0.8rem; color:var(--muted); margin-bottom:12px;">تمويل 18M د.أ بعائد تشغيلي 6.8% سنوياً من رسوم المواقف.</p>
+                <button class="btn-gold" style="width:100%; justify-content:center;" onclick="alert('تم تسجيل اكتتابك في الصكوك بنجاح!')">اكتتب الآن</button>
+            </div>
+            <div style="background:var(--card); border:1px solid rgba(16,185,129,0.3); border-radius:12px; padding:20px;">
+                <span style="background:rgba(16,185,129,0.15); color:var(--green); font-size:0.7rem; font-weight:bold; padding:2px 8px; border-radius:10px;">وقف تعليمي</span>
+                <h4 style="margin:8px 0;">سهم الوقف السكني لطلبة اليرموك</h4>
+                <p style="font-size:0.8rem; color:var(--muted); margin-bottom:12px;">إنشاء مجمع سكني غير ربحي ريعه مخصص لمنح الطلبة.</p>
+                <button class="btn-main" style="width:100%; justify-content:center;" onclick="alert('تم تسجيل مساهمتك الوقفية بنجاح!')">ساهم بسهم وقفي</button>
+            </div>
+        </div>
+    </section>
+
+    <footer><p>جميع الحقوق محفوظة &copy; 2025 | <strong>محاكِي إربد الحضري المتكامل</strong></p></footer>
+
+    <script src="static/js/main.js"></script>
+</body>
+</html>
